@@ -1,6 +1,6 @@
-# Human Virus Database
+# Human-Infective RNA Viruses
 
-A free, searchable, mobile- and desktop-friendly atlas of human-infective viruses.
+A free, searchable, mobile- and desktop-friendly atlas of the 239 RNA virus species known to infect humans.
 
 **Live site:** https://phagehunter.github.io/human-viruses/
 
@@ -34,11 +34,12 @@ sitemap.xml          Sitemap for search engines
 
 Open `index.html` in any web browser — that's it.
 
-## Data sources
+## Data sources & citations
 
-- **Zhang et al.** — Human-infective RNA virus database (taxonomy, transmission, host range, discovery data)
-- **SpillOver: Viral Risk Ranking** — [spillover.global](https://spillover.global) (spillover risk scores)
-- **WHO** — Pathogens prioritization for research and development
-- **CEPI 3.0 Strategy** — pandemic preparedness context
+- **Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ.** A complete catalogue of human-infective RNA viruses. *Scientific Data*. 2026;13:981. [doi:10.1038/s41597-026-07281-5](https://doi.org/10.1038/s41597-026-07281-5)
+- **Zhang F, et al.** Human-infective RNA virus database [dataset]. figshare; 2026. [doi:10.6084/m9.figshare.30094726.v2](https://doi.org/10.6084/m9.figshare.30094726.v2)
+- **SpillOver: Viral Risk Ranking** — spillover risk scores; full credit to the SpillOver team. [spillover.global/ranking-comparison](https://spillover.global/ranking-comparison/)
+- **WHO.** Pathogens prioritization: a scientific framework for epidemic and pandemic research preparedness. WHO; 2024. *(context)*
+- **CEPI.** CEPI 3.0 Strategy (2027–2031). *(context)*
 
 For research and educational use. Data is provided "as is" and may contain errors; confirm against primary literature before relying on it. Not medical advice.
