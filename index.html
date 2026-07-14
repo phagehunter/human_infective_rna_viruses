@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary SEO -->
+    <title>Human Virus Database — Searchable Atlas of Human-Infective Viruses</title>
+    <meta name="description" content="A free, searchable database of human-infective viruses: taxonomy, genome type, transmission routes, host range, discovery location, and spillover risk. Filter by family, genome and transmission. Mobile and desktop friendly.">
+    <meta name="keywords" content="human viruses, virus database, RNA viruses, zoonotic viruses, spillover risk, ICTV taxonomy, virus transmission, pathogen, epidemiology, emerging infectious disease">
+    <meta name="author" content="PhageHunter">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#1e3a8a">
+    <link rel="canonical" href="https://phagehunter.github.io/human-viruses/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Human Virus Database">
+    <meta property="og:title" content="Human Virus Database — Searchable Atlas of Human-Infective Viruses">
+    <meta property="og:description" content="Search 200+ human-infective viruses by taxonomy, genome, transmission route, host range, and spillover risk. Free and open.">
+    <meta property="og:url" content="https://phagehunter.github.io/human-viruses/">
+    <meta property="og:image" content="https://phagehunter.github.io/human-viruses/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Human Virus Database — Searchable Atlas of Human-Infective Viruses">
+    <meta name="twitter:description" content="Search 200+ human-infective viruses by taxonomy, genome, transmission route, host range, and spillover risk.">
+    <meta name="twitter:image" content="https://phagehunter.github.io/human-viruses/assets/og-image.png">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="apple-touch-icon" href="assets/favicon.svg">
+
+    <!-- Structured data for search engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Human Virus Database",
+      "description": "A searchable database of human-infective viruses including taxonomy, genome type, transmission routes, host range, discovery location, and spillover risk scores.",
+      "url": "https://phagehunter.github.io/human-viruses/",
+      "keywords": ["human viruses", "RNA viruses", "zoonotic viruses", "spillover risk", "virus taxonomy", "transmission"],
+      "creator": {"@type": "Organization", "name": "PhageHunter"},
+      "isBasedOn": [
+        "Zhang et al. Human-infective RNA virus database",
+        "SpillOver: Viral Risk Ranking (spillover.global)"
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="data/viruses.js"></script>
+    <style>
+        @keyframes fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+        .animate-fade-in { animation: fade-in 0.25s ease-out; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <header class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 py-3 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white/10 p-2 rounded-lg">
+                    <i data-lucide="shield-alert" class="w-6 h-6 text-blue-200"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg sm:text-xl font-bold tracking-tight">Human Virus Database</h1>
+                    <p class="text-[11px] sm:text-xs text-blue-200">Searchable atlas of human-infective viruses</p>
+                </div>
+            </div>
+            <a href="#about" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-blue-100 hover:text-white transition">
+                <i data-lucide="info" class="w-4 h-4"></i> About &amp; sources
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl w-full mx-auto px-4 py-6 sm:px-6 lg:px-8 flex-1">
+
+        <!-- Stats -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
+            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-3">
+                <div class="p-2.5 bg-blue-100 rounded-lg text-blue-600"><i data-lucide="bug" class="w-5 h-5"></i></div>
+                <div>
+                    <p class="text-[10px] font-medium text-slate-500 uppercase tracking-wider">Viruses</p>
+                    <p id="statTotal" class="text-xl sm:text-2xl font-bold text-slate-900">–</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-3">
+                <div class="p-2.5 bg-purple-100 rounded-lg text-purple-600"><i data-lucide="git-branch" class="w-5 h-5"></i></div>
+                <div>
+                    <p class="text-[10px] font-medium text-slate-500 uppercase tracking-wider">Families</p>
+                    <p id="statFamilies" class="text-xl sm:text-2xl font-bold text-slate-900">–</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-3">
+                <div class="p-2.5 bg-emerald-100 rounded-lg text-emerald-600"><i data-lucide="globe" class="w-5 h-5"></i></div>
+                <div>
+                    <p class="text-[10px] font-medium text-slate-500 uppercase tracking-wider">Top hotspot</p>
+                    <p id="statCountry" class="text-base sm:text-lg font-bold text-slate-900 truncate max-w-[130px]">–</p>
+                </div>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-3">
+                <div class="p-2.5 bg-amber-100 rounded-lg text-amber-600"><i data-lucide="layers" class="w-5 h-5"></i></div>
+                <div>
+                    <p class="text-[10px] font-medium text-slate-500 uppercase tracking-wider">Enveloped</p>
+                    <p id="statEnveloped" class="text-xl sm:text-2xl font-bold text-slate-900">–</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search + filters -->
+        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-4 sticky top-[64px] z-30">
+            <div class="flex flex-col md:flex-row gap-3">
+                <div class="relative flex-1">
+                    <i data-lucide="search" class="absolute left-3 top-2.5 w-5 h-5 text-slate-400"></i>
+                    <input type="text" id="searchInput" placeholder="Search name, species, genus, family, or country…" class="w-full pl-10 pr-4 py-2 bg-slate-50 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-sm">
+                </div>
+                <div class="grid grid-cols-3 md:flex gap-2">
+                    <select id="filterFamily" class="bg-slate-50 border border-slate-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"><option value="">All families</option></select>
+                    <select id="filterGenome" class="bg-slate-50 border border-slate-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"><option value="">All genomes</option></select>
+                    <select id="filterTx" class="bg-slate-50 border border-slate-300 rounded-lg px-2 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"><option value="">All transmission</option></select>
+                </div>
+            </div>
+            <div class="flex items-center justify-between gap-3">
+                <p id="resultsCount" class="text-xs font-medium text-slate-500">Loading…</p>
+                <button id="resetBtn" class="text-xs font-medium text-blue-600 hover:text-blue-800 inline-flex items-center gap-1"><i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reset</button>
+            </div>
+        </div>
+
+        <div id="virusGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-6"></div>
+
+        <!-- About / sources -->
+        <section id="about" class="mt-12 bg-white rounded-xl border border-slate-200 shadow-sm p-6 sm:p-8 scroll-mt-32">
+            <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2 mb-3"><i data-lucide="info" class="w-5 h-5 text-blue-600"></i> About this database</h2>
+            <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                This is a searchable, mobile- and desktop-friendly atlas of human-infective viruses. Each record includes viral taxonomy (ICTV), genome type, envelope status, likely transmission routes, observed host range, and where and when the virus was first described. Where a match exists, we also show a <strong>spillover risk score</strong> — an estimate of a virus's potential to spread from animals to humans.
+            </p>
+            <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Data sources</h3>
+            <ul class="text-sm text-slate-600 space-y-1.5 list-disc pl-5 mb-4">
+                <li>Zhang <em>et al.</em> — Human-infective RNA virus database (taxonomy, transmission, host range, discovery data).</li>
+                <li>SpillOver: Viral Risk Ranking — <a class="text-blue-600 hover:underline" href="https://spillover.global" target="_blank" rel="noopener">spillover.global</a> (spillover risk scores).</li>
+                <li>WHO — Pathogens prioritization for research and development.</li>
+                <li>CEPI 3.0 Strategy — pandemic preparedness context.</li>
+            </ul>
+            <p class="text-xs text-slate-400 leading-relaxed">
+                For research and educational use. Data is provided "as is" from the sources above and may contain errors or omissions; always confirm against primary literature before relying on it. Not medical advice.
+            </p>
+        </section>
+    </main>
+
+    <!-- Detail modal -->
+    <div id="detailModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-4 hidden opacity-0 transition-opacity duration-200">
+        <div class="bg-white rounded-xl shadow-2xl w-full max-w-3xl max-h-[92vh] flex flex-col overflow-hidden transform scale-95 transition-transform duration-200">
+            <div class="bg-slate-900 text-white p-5 sm:p-6 relative flex justify-between items-start gap-3">
+                <div class="min-w-0">
+                    <span id="modalFamilyBadge" class="inline-block text-[10px] font-semibold uppercase tracking-wider bg-blue-500 text-white px-2 py-0.5 rounded mb-2">Family</span>
+                    <h2 id="modalCommonName" class="text-xl sm:text-2xl font-bold break-words">Virus name</h2>
+                    <p id="modalSpeciesName" class="text-sm text-slate-400 italic mt-0.5 break-words">ICTV species</p>
+                </div>
+                <button onclick="closeModal()" aria-label="Close" class="text-slate-400 hover:text-white transition p-1 shrink-0"><i data-lucide="x" class="w-6 h-6"></i></button>
+            </div>
+            <div class="p-5 sm:p-6 overflow-y-auto space-y-5 bg-slate-50/50 flex-1">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                    <div class="bg-white p-4 rounded-lg border border-slate-200 space-y-3">
+                        <h3 class="font-bold text-[11px] text-slate-400 uppercase tracking-wider border-b pb-1">Taxonomy &amp; composition</h3>
+                        <div class="grid grid-cols-3 gap-y-2 text-xs">
+                            <span class="text-slate-500 font-medium">Genus</span><span id="mGenus" class="col-span-2 text-slate-900 font-semibold">–</span>
+                            <span class="text-slate-500 font-medium">Genome</span><span id="mGenome" class="col-span-2 text-slate-900">–</span>
+                            <span class="text-slate-500 font-medium">Enveloped</span><span id="mEnveloped" class="col-span-2 text-slate-900">–</span>
+                            <span class="text-slate-500 font-medium">Sequence</span><span id="mSeqID" class="col-span-2 font-mono text-slate-600 bg-slate-100 px-1 py-0.5 rounded w-fit truncate max-w-full">–</span>
+                            <span class="text-slate-500 font-medium">Spillover</span><span id="mSpillover" class="col-span-2 text-slate-900">–</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg border border-slate-200 space-y-3">
+                        <h3 class="font-bold text-[11px] text-slate-400 uppercase tracking-wider border-b pb-1">Discovery</h3>
+                        <div class="grid grid-cols-3 gap-y-2 text-xs">
+                            <span class="text-slate-500 font-medium">Year</span><span id="mYear" class="col-span-2 text-slate-900 font-semibold">–</span>
+                            <span class="text-slate-500 font-medium">Country</span><span id="mCountry" class="col-span-2 text-slate-900">–</span>
+                            <span class="text-slate-500 font-medium">Region</span><span id="mRegion" class="col-span-2 text-slate-900">–</span>
+                            <span class="text-slate-500 font-medium">Refs</span><span id="mRefs" class="col-span-2 text-slate-900">–</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 sm:p-5 rounded-lg border border-slate-200 space-y-3">
+                    <h3 class="font-bold text-[11px] text-slate-400 uppercase tracking-wider border-b pb-1">Transmission routes</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs" id="modalTransmissionGrid"></div>
+                </div>
+                <div class="bg-white p-4 sm:p-5 rounded-lg border border-slate-200 space-y-3">
+                    <h3 class="font-bold text-[11px] text-slate-400 uppercase tracking-wider border-b pb-1">Host range</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 text-xs" id="modalHostGrid"></div>
+                </div>
+            </div>
+            <div class="bg-slate-100 p-4 border-t flex justify-end">
+                <button onclick="closeModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-semibold transition">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-white border-t border-slate-200 mt-8">
+        <div class="max-w-7xl mx-auto px-4 py-5 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-400">
+            <span>Human Virus Database · compiled by PhageHunter</span>
+            <span>Data: Zhang <em>et al.</em> · spillover.global · WHO · CEPI</span>
+        </div>
+    </footer>
+
+    <script>
+        let DATA = [];
+        const TX_ROUTES = ["Vector","Inhalation","Ingestion","Sexual contact","Iatrogenic","Fomites","Broken skin","Maternal","Direct contact"];
+        const HOSTS = [["Human only","Human only"],["Non-human primate","Primates"],["Other mammals","Other mammals"],["Birds","Birds"],["Other vertebrates","Other vertebrates"]];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            lucide.createIcons();
+            DATA = Array.isArray(window.VIRUS_DATA) ? window.VIRUS_DATA : [];
+            document.getElementById('searchInput').addEventListener('input', runFilters);
+            document.getElementById('filterFamily').addEventListener('change', runFilters);
+            document.getElementById('filterGenome').addEventListener('change', runFilters);
+            document.getElementById('filterTx').addEventListener('change', runFilters);
+            document.getElementById('resetBtn').addEventListener('click', resetFilters);
+            document.getElementById('detailModal').addEventListener('click', (e) => { if (e.target.id === 'detailModal') closeModal(); });
+            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+            initFilters();
+            calcStats();
+            runFilters();
+        });
+
+        function calcStats() {
+            const total = DATA.length;
+            const families = new Set(DATA.map(v => v.family).filter(Boolean));
+            const countryCounts = {};
+            let env = 0;
+            DATA.forEach(v => {
+                if (v.country) countryCounts[v.country] = (countryCounts[v.country] || 0) + 1;
+                if (v.enveloped === 1) env++;
+            });
+            let top = '–', max = 0;
+            for (const [c, n] of Object.entries(countryCounts)) if (n > max) { max = n; top = c; }
+            document.getElementById('statTotal').innerText = total;
+            document.getElementById('statFamilies').innerText = families.size;
+            document.getElementById('statCountry').innerText = top;
+            document.getElementById('statEnveloped').innerText = total ? Math.round((env / total) * 100) + '%' : '–';
+        }
+
+        function initFilters() {
+            const fam = new Set(), gen = new Set();
+            DATA.forEach(v => { if (v.family) fam.add(v.family); if (v.genome) gen.add(v.genome); });
+            fill('filterFamily', [...fam].sort());
+            fill('filterGenome', [...gen].sort());
+            fill('filterTx', TX_ROUTES);
+        }
+        function fill(id, items) {
+            const sel = document.getElementById(id);
+            items.forEach(val => { const o = document.createElement('option'); o.value = val; o.textContent = val; sel.appendChild(o); });
+        }
+
+        function resetFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('filterFamily').value = '';
+            document.getElementById('filterGenome').value = '';
+            document.getElementById('filterTx').value = '';
+            runFilters();
+        }
+
+        function runFilters() {
+            const q = document.getElementById('searchInput').value.toLowerCase().trim();
+            const fam = document.getElementById('filterFamily').value;
+            const gen = document.getElementById('filterGenome').value;
+            const tx = document.getElementById('filterTx').value;
+            const out = DATA.filter(v => {
+                const sMatch = !q || [v.name, v.species, v.genus, v.family, v.country].some(f => String(f || '').toLowerCase().includes(q));
+                const fMatch = !fam || v.family === fam;
+                const gMatch = !gen || v.genome === gen;
+                const tMatch = !tx || (v.tx && v.tx[tx] === 1);
+                return sMatch && fMatch && gMatch && tMatch;
+            });
+            document.getElementById('resultsCount').innerText = `Showing ${out.length} of ${DATA.length} viruses`;
+            render(out);
+        }
+
+        function render(data) {
+            const grid = document.getElementById('virusGrid');
+            grid.innerHTML = '';
+            if (!data.length) {
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400 bg-white border rounded-xl"><i data-lucide="folder-search" class="w-12 h-12 mx-auto mb-2 text-slate-300"></i><p class="text-sm font-medium">No viruses match your search</p></div>`;
+                lucide.createIcons();
+                return;
+            }
+            const frag = document.createDocumentFragment();
+            data.forEach(v => {
+                const enveloped = v.enveloped === 1;
+                const card = document.createElement('button');
+                card.type = 'button';
+                card.className = "text-left bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md hover:border-blue-400 transition duration-200 flex flex-col justify-between overflow-hidden";
+                card.onclick = () => openModal(v);
+                const risk = (typeof v.spilloverScore === 'number')
+                    ? `<span class="text-[10px] px-2 py-0.5 rounded font-semibold bg-rose-50 text-rose-700 border border-rose-200" title="Spillover risk score">Risk ${v.spilloverScore}</span>` : '';
+                card.innerHTML = `
+                    <div class="p-4 sm:p-5 space-y-3">
+                        <div class="flex justify-between items-start gap-2 flex-wrap">
+                            <span class="px-2 py-0.5 bg-slate-100 text-slate-700 text-[10px] font-bold uppercase tracking-wider rounded truncate max-w-[150px]">${esc(v.family) || 'Unclassified'}</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded font-semibold ${enveloped ? 'bg-amber-50 text-amber-700 border border-amber-200' : 'bg-teal-50 text-teal-700 border border-teal-200'}">${enveloped ? 'Enveloped' : 'Non-enveloped'}</span>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-slate-900 line-clamp-2">${esc(v.name) || 'Unnamed'}</h3>
+                            <p class="text-xs text-slate-400 italic line-clamp-1 mt-0.5">${esc(v.species) || 'N/A'}</p>
+                        </div>
+                        <div class="pt-2 flex items-center justify-between gap-2 text-xs text-slate-500 border-t border-slate-100">
+                            <span class="flex items-center min-w-0"><i data-lucide="map-pin" class="w-3.5 h-3.5 mr-1 text-slate-400 shrink-0"></i><span class="truncate">${esc(v.country) || 'Unknown'}</span></span>
+                            <span class="font-medium bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded text-[11px] shrink-0">${esc(v.year) || 'N/A'}</span>
+                        </div>
+                        ${risk ? `<div>${risk}</div>` : ''}
+                    </div>
+                    <div class="px-4 sm:px-5 py-2.5 bg-slate-50 border-t border-slate-100 flex justify-between items-center text-xs text-blue-600 font-semibold">
+                        <span>View details</span><i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </div>`;
+                frag.appendChild(card);
+            });
+            grid.appendChild(frag);
+            lucide.createIcons();
+        }
+
+        function esc(s) {
+            return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+        }
+
+        function openModal(v) {
+            document.getElementById('modalFamilyBadge').innerText = v.family || 'N/A';
+            document.getElementById('modalCommonName').innerText = v.name || 'Unnamed virus';
+            document.getElementById('modalSpeciesName').innerText = v.species || 'Not specified';
+            document.getElementById('mGenus').innerText = v.genus || 'N/A';
+            document.getElementById('mGenome').innerText = v.genome || 'N/A';
+            document.getElementById('mEnveloped').innerText = v.enveloped === 1 ? 'Yes (lipid envelope)' : 'No (naked capsid)';
+            document.getElementById('mSeqID').innerText = v.seqId || 'None';
+            document.getElementById('mYear').innerText = v.year || 'Unknown';
+            document.getElementById('mCountry').innerText = v.country || 'Unknown';
+            document.getElementById('mRegion').innerText = v.region || 'N/A';
+
+            const spill = document.getElementById('mSpillover');
+            if (typeof v.spilloverScore === 'number') {
+                spill.innerHTML = `<span class="font-semibold text-rose-700">${v.spilloverScore}</span>${v.spilloverRank ? ` <span class="text-slate-400">(rank #${v.spilloverRank})</span>` : ''}`;
+            } else { spill.innerText = 'Not ranked'; }
+
+            const refs = document.getElementById('mRefs');
+            const links = [];
+            if (v.ref && v.ref.url) links.push(`<a class="text-blue-600 hover:underline" href="${esc(v.ref.url)}" target="_blank" rel="noopener">PubMed ${esc(v.ref.id)}</a>`);
+            if (v.ictv && v.ictv.url) links.push(`<a class="text-blue-600 hover:underline" href="${esc(v.ictv.url)}" target="_blank" rel="noopener">ICTV</a>`);
+            refs.innerHTML = links.length ? links.join(' · ') : 'N/A';
+
+            const txGrid = document.getElementById('modalTransmissionGrid');
+            txGrid.innerHTML = '';
+            TX_ROUTES.forEach(label => {
+                const active = v.tx && v.tx[label] === 1;
+                const b = document.createElement('div');
+                b.className = `p-2.5 rounded-lg border text-center font-medium ${active ? 'bg-red-50 text-red-700 border-red-200 font-bold' : 'bg-slate-100 text-slate-400 border-slate-200'}`;
+                b.innerHTML = `<div class="text-[10px] tracking-wide text-slate-400 font-normal uppercase mb-0.5">${label}</div><div class="text-xs">${active ? 'Yes' : '–'}</div>`;
+                txGrid.appendChild(b);
+            });
+
+            const hostGrid = document.getElementById('modalHostGrid');
+            hostGrid.innerHTML = '';
+            HOSTS.forEach(([key, label]) => {
+                const active = v.hosts && v.hosts[key] === 1;
+                const b = document.createElement('div');
+                b.className = `p-2.5 rounded-lg border text-center font-medium ${active ? 'bg-emerald-50 text-emerald-700 border-emerald-200 font-bold' : 'bg-slate-100 text-slate-400 border-slate-200'}`;
+                b.innerHTML = `<div class="text-[10px] tracking-wide text-slate-400 font-normal uppercase mb-0.5">${label}</div><div class="text-xs">${active ? 'Yes' : '–'}</div>`;
+                hostGrid.appendChild(b);
+            });
+
+            const modal = document.getElementById('detailModal');
+            modal.classList.remove('hidden');
+            requestAnimationFrame(() => { modal.classList.remove('opacity-0'); modal.firstElementChild.classList.remove('scale-95'); });
+            lucide.createIcons();
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('detailModal');
+            if (modal.classList.contains('hidden')) return;
+            modal.classList.add('opacity-0');
+            modal.firstElementChild.classList.add('scale-95');
+            setTimeout(() => modal.classList.add('hidden'), 200);
+        }
+    </script>
+</body>
+</html>
