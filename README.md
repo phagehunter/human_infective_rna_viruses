@@ -2,7 +2,7 @@
 
 A free, searchable, mobile- and desktop-friendly atlas of the 239 RNA virus species known to infect humans.
 
-**Live site:** https://phagehunter.github.io/human_infective_rna_viruses/
+**Live site:** https://curtishoffmann.com/human_infective_rna_viruses/
 
 Each record includes:
 
