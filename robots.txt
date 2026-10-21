@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://phagehunter.github.io/human_infective_rna_viruses/sitemap.xml
+Sitemap: https://curtishoffmann.com/human_infective_rna_viruses/sitemap.xml
