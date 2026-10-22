@@ -1,0 +1,36 @@
+# Human-Infective RNA Viruses
+
+> A free, searchable atlas by Curtis Hoffmann of the 239 RNA virus species known to infect humans, recognized through 2024. One page, works on phones and desktops: search by name, species, genus, family or country, and filter by family, genome type or transmission route. Built for students, researchers and anyone learning how these pathogens shape pandemic preparedness. For research and educational use; not medical advice.
+
+Site: https://curtishoffmann.com/human_infective_rna_viruses/
+Source: https://github.com/phagehunter/human_infective_rna_viruses
+
+## What each record holds
+
+- ICTV taxonomy: family, genus, species.
+- Genome type and envelope status.
+- Likely transmission routes: vector, inhalation, ingestion, sexual contact, iatrogenic, fomites, broken skin, maternal, direct contact.
+- Observed host range: human only, non-human primates, other mammals, birds, other vertebrates.
+- First reported human infection: year, country and region.
+- Spillover risk score where a match exists (an estimate of a virus's potential to move from animals to people).
+- Links to PubMed and ICTV references.
+
+## Sections (one page, anchored)
+
+- Browse the database (search and filters): https://curtishoffmann.com/human_infective_rna_viruses/
+- About the data and Sources and citations are on the same page.
+
+## Data and sources
+
+- The 239 records are loaded from `data/viruses.js` in the repository; plain HTML, CSS and JavaScript, no build step.
+- Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ. A complete catalogue of human-infective RNA viruses. Scientific Data. 2026;13:981. https://doi.org/10.1038/s41597-026-07281-5 (the peer-reviewed paper describing the dataset).
+- Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ. Human-infective RNA virus database [dataset]. figshare; 2026. https://doi.org/10.6084/m9.figshare.30094726.v2 (the underlying data; CC BY 4.0).
+- SpillOver: Viral Risk Ranking, https://spillover.global/ranking-comparison/ (the spillover risk scores; credit belongs to the SpillOver team).
+- Context, not data: WHO, Pathogens prioritization: a scientific framework for epidemic and pandemic research preparedness (2024); CEPI 3.0 Strategy 2027-2031 and the 100 Days Mission.
+- Data are reproduced as is and may contain errors or omissions; confirm against the primary literature before relying on them. Please cite the original authors when reusing the data.
+
+## Contact
+
+- Author: Curtis Hoffmann, https://curtishoffmann.com/
+- Issues: https://github.com/phagehunter/human_infective_rna_viruses/issues
+- Sitemap: https://curtishoffmann.com/human_infective_rna_viruses/sitemap.xml
