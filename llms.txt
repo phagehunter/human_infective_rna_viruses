@@ -1,36 +1,66 @@
 # Human-Infective RNA Viruses
 
-> A free, searchable atlas by Curtis Hoffmann of the 239 RNA virus species known to infect humans, recognized through 2024. One page, works on phones and desktops: search by name, species, genus, family or country, and filter by family, genome type or transmission route. Built for students, researchers and anyone learning how these pathogens shape pandemic preparedness. For research and educational use; not medical advice.
+> A searchable atlas of the 239 RNA virus species with documented human infection,
+> built from the open catalogue of Zhang et al. Each record carries ICTV taxonomy, transmission
+> level, transmission routes and vector, host range, and the year and country of the first
+> reported human infection. First reports span 1901 to 2022.
 
 Site: https://curtishoffmann.com/human_infective_rna_viruses/
-Source: https://github.com/phagehunter/human_infective_rna_viruses
+Maintainer: Curtis Hoffmann (https://curtishoffmann.com)
+Source repository: https://github.com/phagehunter/human_infective_rna_viruses
+Page built: 2026-10-24
 
-## What each record holds
+## The data
 
-- ICTV taxonomy: family, genus, species.
-- Genome type and envelope status.
-- Likely transmission routes: vector, inhalation, ingestion, sexual contact, iatrogenic, fomites, broken skin, maternal, direct contact.
-- Observed host range: human only, non-human primates, other mammals, birds, other vertebrates.
-- First reported human infection: year, country and region.
-- Spillover risk score where a match exists (an estimate of a virus's potential to move from animals to people).
-- Links to PubMed and ICTV references.
+Every record derives from one upstream release, committed to the repository unchanged:
 
-## Sections (one page, anchored)
+- Dataset: Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ. Human-infective RNA virus
+  database. figshare, version 2. doi:10.6084/m9.figshare.30094726.v2. Licensed CC BY 4.0.
+- Paper: Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ. A complete catalogue of
+  human-infective RNA viruses. Scientific Data. 2026;13:981. doi:10.1038/s41597-026-07281-5
+- Risk scores: SpillOver: Viral Risk Ranking (spillover.global), covering 33 of these species.
 
-- Browse the database (search and filters): https://curtishoffmann.com/human_infective_rna_viruses/
-- About the data and Sources and citations are on the same page.
+Anyone citing the catalogue should cite Zhang et al., not this site.
 
-## Data and sources
+## Shape of the catalogue
 
-- The 239 records are loaded from `data/viruses.js` in the repository; plain HTML, CSS and JavaScript, no build step.
-- Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ. A complete catalogue of human-infective RNA viruses. Scientific Data. 2026;13:981. https://doi.org/10.1038/s41597-026-07281-5 (the peer-reviewed paper describing the dataset).
-- Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ. Human-infective RNA virus database [dataset]. figshare; 2026. https://doi.org/10.6084/m9.figshare.30094726.v2 (the underlying data; CC BY 4.0).
-- SpillOver: Viral Risk Ranking, https://spillover.global/ranking-comparison/ (the spillover risk scores; credit belongs to the SpillOver team).
-- Context, not data: WHO, Pathogens prioritization: a scientific framework for epidemic and pandemic research preparedness (2024); CEPI 3.0 Strategy 2027-2031 and the 100 Days Mission.
-- Data are reproduced as is and may contain errors or omissions; confirm against the primary literature before relying on them. Please cite the original authors when reusing the data.
+- 239 species across 23 families and 61 genera
+- 57 countries of first report, 5 genome types
+- First human reports from 1901 to 2022
 
-## Contact
+### Transmission level
 
-- Author: Curtis Hoffmann, https://curtishoffmann.com/
-- Issues: https://github.com/phagehunter/human_infective_rna_viruses/issues
-- Sitemap: https://curtishoffmann.com/human_infective_rna_viruses/sitemap.xml
+The level describes how far a virus travels between people. It is not a severity scale.
+
+- Level 2: 147 species — limited onward transmission between humans
+- Level 3: 32 species — longer chains of transmission between humans
+- Level 4a: 36 species — sustained human-to-human transmission, with an animal reservoir
+- Level 4b: 24 species — sustained human-to-human transmission, no animal reservoir needed
+
+### Largest families
+
+- Flaviviridae: 31 species
+- Picornaviridae: 25 species
+- Togaviridae: 22 species
+- Peribunyaviridae: 21 species
+- Rhabdoviridae: 19 species
+- Paramyxoviridae: 17 species
+- Hantaviridae: 14 species
+- Arenaviridae: 12 species
+- Retroviridae: 11 species
+- Phenuiviridae: 10 species
+- Sedoreoviridae: 9 species
+- Nairoviridae: 8 species
+
+## Limits a reader should know
+
+- The catalogue records human infection, not disease burden, severity or current circulation.
+- A blank transmission route or host means no recorded evidence, not evidence of absence.
+- 32 records carry no reference sequence accession.
+- 206 records have no SpillOver risk score.
+- 48 records carry a cell the source marks with an asterisk whose
+  meaning the dataset does not define; the value is shown as recorded and the mark is kept.
+- Coordinates are the locality of first report and are not plotted, because
+  65 records share a point with at least one other.
+
+See DATA.md in the repository for the checksum, the normalization report and the full provenance.
