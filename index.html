@@ -1,571 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Primary SEO -->
-    <title>Human-Infective RNA Viruses — Searchable Database</title>
-    <meta name="description" content="A free, searchable database of all 239 human-infective RNA virus species recognised through 2024: taxonomy, genome type, transmission routes, host range, discovery location and spillover risk. Filter by family, genome and transmission. Mobile and desktop friendly.">
-    <meta name="keywords" content="human-infective RNA viruses, RNA virus database, zoonotic viruses, spillover risk, ICTV taxonomy, virus transmission, emerging infectious disease, pandemic preparedness, pathogen">
-    <meta name="author" content="PhageHunter">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0f172a">
-    <link rel="canonical" href="https://curtishoffmann.com/human_infective_rna_viruses/">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Human-Infective RNA Viruses">
-    <meta property="og:title" content="Human-Infective RNA Viruses — Searchable Database">
-    <meta property="og:description" content="Search all 239 human-infective RNA virus species by taxonomy, genome, transmission route, host range and spillover risk. Free and open.">
-    <meta property="og:url" content="https://curtishoffmann.com/human_infective_rna_viruses/">
-    <meta property="og:image" content="https://curtishoffmann.com/human_infective_rna_viruses/assets/og-image.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Human-Infective RNA Viruses — Searchable Database">
-    <meta name="twitter:description" content="Search all 239 human-infective RNA virus species by taxonomy, genome, transmission route, host range and spillover risk.">
-    <meta name="twitter:image" content="https://curtishoffmann.com/human_infective_rna_viruses/assets/og-image.png">
-
-    <!-- Icons -->
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="apple-touch-icon" href="assets/favicon.svg">
-
-    <!-- Structured data -->
-    <script type="application/ld+json">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Human-Infective RNA Viruses — all 239 species, searchable</title>
+<meta name="description" content="A free, searchable atlas of the 239 RNA virus species known to infect humans: ICTV taxonomy, transmission level and route, host range, and where and when each was first reported, from 1901 to 2022.">
+<link rel="canonical" href="https://curtishoffmann.com/human_infective_rna_viruses/">
+<meta name="author" content="Curtis Hoffmann">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#000b18">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://curtishoffmann.com/human_infective_rna_viruses/">
+<meta property="og:title" content="Human-Infective RNA Viruses — all 239 species, searchable">
+<meta property="og:description" content="A free, searchable atlas of the 239 RNA virus species known to infect humans: ICTV taxonomy, transmission level and route, host range, and where and when each was first reported, from 1901 to 2022.">
+<meta property="og:image" content="https://curtishoffmann.com/human_infective_rna_viruses/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Human-Infective RNA Viruses — a searchable atlas of 239 RNA virus species">
+<meta property="og:site_name" content="Human-Infective RNA Viruses">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Human-Infective RNA Viruses — all 239 species, searchable">
+<meta name="twitter:description" content="A free, searchable atlas of the 239 RNA virus species known to infect humans: ICTV taxonomy, transmission level and route, host range, and where and when each was first reported, from 1901 to 2022.">
+<meta name="twitter:image" content="https://curtishoffmann.com/human_infective_rna_viruses/assets/og-image.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css?v=20261024">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "Human-Infective RNA Viruses",
+  "description": "A searchable atlas of the 239 RNA virus species known to infect humans, with ICTV taxonomy, transmission level and route, host range, and first-report year and place, covering 1901 to 2022.",
+  "url": "https://curtishoffmann.com/human_infective_rna_viruses/",
+  "creator": {
+    "@type": "Person",
+    "name": "Curtis Hoffmann",
+    "url": "https://curtishoffmann.com"
+  },
+  "isBasedOn": "https://doi.org/10.6084/m9.figshare.30094726.v2",
+  "citation": "Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ. A complete catalogue of human-infective RNA viruses. Scientific Data. 2026;13:981. doi:10.1038/s41597-026-07281-5",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "temporalCoverage": "1901/2022",
+  "dateModified": "2026-10-24",
+  "isAccessibleForFree": true,
+  "variableMeasured": [
     {
-      "@context": "https://schema.org",
-      "@type": "Dataset",
-      "name": "Human-Infective RNA Viruses",
-      "description": "A searchable database of all 239 human-infective RNA virus species recognised through 2024, including taxonomy, genome type, transmission routes, host range, discovery location and spillover risk scores.",
-      "url": "https://curtishoffmann.com/human_infective_rna_viruses/",
-      "keywords": ["human-infective RNA viruses", "RNA viruses", "zoonotic viruses", "spillover risk", "virus taxonomy", "transmission"],
-      "creator": {"@type": "Organization", "name": "PhageHunter"},
-      "citation": "Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ. A complete catalogue of human-infective RNA viruses. Scientific Data. 2026;13:981. doi:10.1038/s41597-026-07281-5",
-      "isBasedOn": "https://doi.org/10.6084/m9.figshare.30094726.v2",
-      "license": "https://creativecommons.org/licenses/by/4.0/"
+      "@type": "PropertyValue",
+      "name": "ICTV species"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ICTV genus"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ICTV family"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Genome type"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Envelope"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Transmission level"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Transmission route"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Host range"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Year of first report"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Country of first report"
     }
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="data/viruses.js"></script>
-    <style>
-        @keyframes fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-        .animate-fade-in { animation: fade-in 0.25s ease-out; }
-        html { scroll-behavior: smooth; }
-        body { -webkit-font-smoothing: antialiased; }
-    </style>
+  ]
+}
+</script>
 </head>
-<body class="bg-slate-100 text-slate-800 font-sans min-h-screen flex flex-col">
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
-    <!-- ============ HEADER ============ -->
-    <header class="bg-slate-900 text-white sticky top-0 z-40 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
-            <a href="#top" class="flex items-center gap-3 min-w-0">
-                <span class="bg-gradient-to-br from-blue-500 to-indigo-600 p-2 rounded-lg shrink-0">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" class="w-5 h-5 text-white" aria-hidden="true">
-                        <circle cx="12" cy="12" r="4.2"/>
-                        <line x1="12" y1="7.8" x2="12" y2="4"/><circle cx="12" cy="3" r="1.3" fill="currentColor" stroke="none"/>
-                        <line x1="12" y1="16.2" x2="12" y2="20"/><circle cx="12" cy="21" r="1.3" fill="currentColor" stroke="none"/>
-                        <line x1="7.8" y1="12" x2="4" y2="12"/><circle cx="3" cy="12" r="1.3" fill="currentColor" stroke="none"/>
-                        <line x1="16.2" y1="12" x2="20" y2="12"/><circle cx="21" cy="12" r="1.3" fill="currentColor" stroke="none"/>
-                        <line x1="9" y1="9" x2="6.3" y2="6.3"/><circle cx="5.4" cy="5.4" r="1.2" fill="currentColor" stroke="none"/>
-                        <line x1="15" y1="9" x2="17.7" y2="6.3"/><circle cx="18.6" cy="5.4" r="1.2" fill="currentColor" stroke="none"/>
-                        <line x1="9" y1="15" x2="6.3" y2="17.7"/><circle cx="5.4" cy="18.6" r="1.2" fill="currentColor" stroke="none"/>
-                        <line x1="15" y1="15" x2="17.7" y2="17.7"/><circle cx="18.6" cy="18.6" r="1.2" fill="currentColor" stroke="none"/>
-                    </svg>
-                </span>
-                <span class="min-w-0">
-                    <span class="block text-sm sm:text-base font-bold tracking-tight leading-tight truncate">Human-Infective RNA Viruses</span>
-                    <span class="block text-[10px] sm:text-xs text-slate-400 leading-tight truncate">Searchable database · 239 species</span>
-                </span>
-            </a>
-            <nav class="flex items-center gap-1 sm:gap-2 text-sm shrink-0">
-                <a href="#browse" class="hidden sm:inline-block px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-white/10 transition">Browse</a>
-                <a href="#about" class="hidden sm:inline-block px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-white/10 transition">About</a>
-                <a href="#sources" class="px-3 py-1.5 rounded-md text-slate-300 hover:text-white hover:bg-white/10 transition">Sources</a>
-            </nav>
-        </div>
-    </header>
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="./">
+      <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"
+           stroke-linecap="round" aria-hidden="true" focusable="false">
+        <circle cx="24" cy="24" r="11"/>
+        <path d="M24 13V5M24 43v-8M13 24H5M43 24h-8M16.2 16.2l-5.7-5.7M37.5 37.5l-5.7-5.7M31.8 16.2l5.7-5.7M10.5 37.5l5.7-5.7"/>
+        <circle cx="24" cy="4" r="2"/><circle cx="24" cy="44" r="2"/>
+        <circle cx="4" cy="24" r="2"/><circle cx="44" cy="24" r="2"/>
+        <circle cx="9.4" cy="9.4" r="2"/><circle cx="38.6" cy="38.6" r="2"/>
+        <circle cx="38.6" cy="9.4" r="2"/><circle cx="9.4" cy="38.6" r="2"/>
+        <path d="M19.5 26.5c1.5-3 3.2-5.2 4.5-5.2s3 2.2 4.5 5.2"/>
+      </svg>
+      <span>Human-Infective RNA Viruses</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="#catalogue">Catalogue</a>
+      <a href="#reading">How to read it</a>
+      <a href="#limits">Limits</a>
+      <a href="#sources">Sources</a>
+      <a href="https://curtishoffmann.com" class="offsite">curtishoffmann.com</a>
+    </nav>
+  </div>
+</header>
 
-    <span id="top"></span>
+<div class="hero">
+  <div class="wrap">
+    <h1>Every RNA virus known to infect humans, in one searchable place</h1>
+    <p class="lede">The 239 RNA virus species with documented human infection, from the catalogue
+      assembled by Zhang and colleagues. Each record carries ICTV taxonomy, how far the virus transmits
+      between people, which routes and vectors are documented, which hosts it is found in, and where and
+      when human infection was first reported.</p>
+    <dl class="stats">
+      <div><dt>species</dt><dd>239</dd></div>
+      <div><dt>families</dt><dd>23</dd></div>
+      <div><dt>genera</dt><dd>61</dd></div>
+      <div><dt>countries of first report</dt><dd>57</dd></div>
+      <div><dt>first reports span</dt><dd>1901–2022</dd></div>
+    </dl>
+  </div>
+</div>
 
-    <!-- ============ HERO ============ -->
-    <section class="bg-gradient-to-b from-slate-900 to-slate-800 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-            <div class="max-w-3xl">
-                <span class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-blue-300 bg-blue-500/10 border border-blue-400/20 px-2.5 py-1 rounded-full mb-4">
-                    <i data-lucide="dna" class="w-3.5 h-3.5"></i> RNA virus search
-                </span>
-                <h1 class="text-2xl sm:text-4xl font-bold tracking-tight mb-3">Every RNA virus known to infect humans, in one searchable place.</h1>
-                <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
-                    Explore all <strong class="text-white">239 human-infective RNA virus species</strong> recognised through 2024 — their taxonomy, genome, how they spread, which hosts they use, where they were first found, and their estimated spillover risk. Built for students, researchers, and anyone learning how these pathogens shape
-                    <a href="#sources" class="text-blue-300 underline decoration-blue-400/40 hover:decoration-blue-300">pandemic preparedness</a>.
-                </p>
-            </div>
-        </div>
-    </section>
+<main id="main">
+  <section id="catalogue" class="wrap" aria-labelledby="catalogue-h">
+    <h2 id="catalogue-h">The catalogue</h2>
 
-    <main class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 flex-1 -mt-6">
+    <form class="filters" id="filters" role="search" aria-labelledby="catalogue-h">
+      <div class="f-q">
+        <label for="f-q">Search</label>
+        <input id="f-q" name="q" type="search" autocomplete="off" spellcheck="false"
+               placeholder="Name, species, genus, family or country…">
+      </div>
+      <div>
+        <label for="f-family">Family</label>
+        <select id="f-family" name="family"><option value="ALL">All families</option></select>
+      </div>
+      <div>
+        <label for="f-genome">Genome</label>
+        <select id="f-genome" name="genome"><option value="ALL">All genome types</option></select>
+      </div>
+      <div>
+        <label for="f-route">Transmission</label>
+        <select id="f-route" name="route"><option value="ALL">All routes</option></select>
+      </div>
+      <div>
+        <label for="f-level">Level</label>
+        <select id="f-level" name="level"><option value="ALL">All levels</option></select>
+      </div>
+      <div class="f-reset">
+        <button type="button" id="f-reset" class="btn ghost">Reset</button>
+      </div>
+    </form>
 
-        <!-- ============ STATS ============ -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3 min-w-0">
-                <div class="p-2.5 bg-blue-100 rounded-lg text-blue-600 shrink-0">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" class="w-5 h-5" aria-hidden="true">
-                        <circle cx="12" cy="12" r="4.2"/>
-                        <g>
-                            <line x1="12" y1="7.8" x2="12" y2="4"/><circle cx="12" cy="3" r="1.3" fill="currentColor" stroke="none"/>
-                            <line x1="12" y1="16.2" x2="12" y2="20"/><circle cx="12" cy="21" r="1.3" fill="currentColor" stroke="none"/>
-                            <line x1="7.8" y1="12" x2="4" y2="12"/><circle cx="3" cy="12" r="1.3" fill="currentColor" stroke="none"/>
-                            <line x1="16.2" y1="12" x2="20" y2="12"/><circle cx="21" cy="12" r="1.3" fill="currentColor" stroke="none"/>
-                            <line x1="9" y1="9" x2="6.3" y2="6.3"/><circle cx="5.4" cy="5.4" r="1.2" fill="currentColor" stroke="none"/>
-                            <line x1="15" y1="9" x2="17.7" y2="6.3"/><circle cx="18.6" cy="5.4" r="1.2" fill="currentColor" stroke="none"/>
-                            <line x1="9" y1="15" x2="6.3" y2="17.7"/><circle cx="5.4" cy="18.6" r="1.2" fill="currentColor" stroke="none"/>
-                            <line x1="15" y1="15" x2="17.7" y2="17.7"/><circle cx="18.6" cy="18.6" r="1.2" fill="currentColor" stroke="none"/>
-                        </g>
-                    </svg>
-                </div>
-                <div class="min-w-0">
-                    <p class="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">Virus species</p>
-                    <p id="statTotal" class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">–</p>
-                </div>
-            </div>
-            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3 min-w-0">
-                <div class="p-2.5 bg-purple-100 rounded-lg text-purple-600 shrink-0"><i data-lucide="git-branch" class="w-5 h-5"></i></div>
-                <div class="min-w-0">
-                    <p class="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">Families</p>
-                    <p id="statFamilies" class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">–</p>
-                </div>
-            </div>
-            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3 min-w-0">
-                <div class="p-2.5 bg-emerald-100 rounded-lg text-emerald-600 shrink-0"><i data-lucide="globe" class="w-5 h-5"></i></div>
-                <div class="min-w-0">
-                    <p class="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">Top discovery site</p>
-                    <p id="statCountry" class="text-sm sm:text-lg font-bold text-slate-900 leading-tight truncate">–</p>
-                </div>
-            </div>
-            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3 min-w-0">
-                <div class="p-2.5 bg-amber-100 rounded-lg text-amber-600 shrink-0"><i data-lucide="layers" class="w-5 h-5"></i></div>
-                <div class="min-w-0">
-                    <p class="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">Enveloped</p>
-                    <p id="statEnveloped" class="text-xl sm:text-2xl font-bold text-slate-900 leading-tight">–</p>
-                </div>
-            </div>
-        </div>
+    <p class="count" id="count" role="status" aria-live="polite">Loading the catalogue…</p>
+    <div id="cards" class="cards"></div>
+    <p id="empty" class="empty" hidden>
+      No species match these filters. <button type="button" class="linklike" id="empty-reset">Clear them</button>
+      and start again.
+    </p>
+    <p id="failed" class="empty" hidden>
+      The catalogue file could not be loaded. Reload the page to try again, or read the dataset directly at
+      <a href="https://doi.org/10.6084/m9.figshare.30094726.v2" rel="noopener">doi.org/10.6084/m9.figshare.30094726.v2</a>.
+    </p>
 
-        <!-- ============ SEARCH + FILTERS ============ -->
-        <div id="browse" class="scroll-mt-20 mt-6">
-            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm space-y-3 md:sticky md:top-[72px] md:z-30">
-                <div class="flex flex-col md:flex-row gap-3">
-                    <div class="relative flex-1">
-                        <i data-lucide="search" class="absolute left-3 top-2.5 w-5 h-5 text-slate-400 pointer-events-none"></i>
-                        <input type="text" id="searchInput" placeholder="Search name, species, genus, family or country…" class="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white text-sm">
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 md:flex gap-2">
-                        <select id="filterFamily" class="bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"><option value="">All families</option></select>
-                        <select id="filterGenome" class="bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"><option value="">All genomes</option></select>
-                        <select id="filterTx" class="bg-slate-50 border border-slate-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"><option value="">All transmission</option></select>
-                    </div>
-                </div>
-                <div class="flex items-center justify-between gap-3">
-                    <p id="resultsCount" class="text-xs font-medium text-slate-500">Loading…</p>
-                    <button id="resetBtn" class="text-xs font-semibold text-blue-600 hover:text-blue-800 inline-flex items-center gap-1"><i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i> Reset filters</button>
-                </div>
-            </div>
+    <noscript>
+      <div class="notice">
+        <p><strong>This catalogue is searchable with JavaScript.</strong> Without it the shape of the data is
+          still below, and the dataset itself is open: every record comes from
+          <a href="https://doi.org/10.6084/m9.figshare.30094726.v2" rel="noopener">doi.org/10.6084/m9.figshare.30094726.v2</a>, released under
+          CC BY 4.0.</p>
+      </div>
+    </noscript>
 
-            <div id="virusGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mt-5"></div>
-        </div>
+    <table class="facts">
+      <caption>What the 239 species look like in aggregate, counted from the data at build time</caption>
+      <tbody>
+          <tr><th scope="row">Genome type</th><td>ssRNA(-) <b>96</b> · ssRNA(+) <b>96</b> · ssRNA(-/+) <b>22</b> · dsRNA <b>14</b> · ssRNA-RT <b>11</b></td></tr>
+          <tr><th scope="row">Region of first report</th><td>North America <b>61</b> · Asia <b>48</b> · Sub-Saharan Africa <b>40</b> · Europe <b>33</b> · South America <b>27</b> · Oceania <b>16</b> · Caribbean <b>11</b> · North Africa/Middle East <b>3</b></td></tr>
+          <tr><th scope="row">Transmission level</th><td>2 <b>147</b> · 3 <b>32</b> · 4a <b>36</b> · 4b <b>24</b></td></tr>
+          <tr><th scope="row">Transmission route</th><td>Vector <b>109</b> · Inhalation <b>76</b> · Direct contact <b>68</b> · Ingestion <b>42</b> · Broken skin <b>30</b> · Maternal <b>26</b> · Iatrogenic <b>23</b> · Fomites <b>20</b> · Sexual contact <b>15</b></td></tr>
+          <tr><th scope="row">Host range</th><td>Other mammals <b>189</b> · Non-human primate <b>76</b> · Birds <b>44</b> · Human only <b>24</b> · Other vertebrates <b>7</b></td></tr>
+      </tbody>
+    </table>
+  </section>
 
-        <!-- ============ ABOUT ============ -->
-        <section id="about" class="scroll-mt-20 mt-12 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8">
-            <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-4"><i data-lucide="info" class="w-5 h-5 text-blue-600"></i> About this database</h2>
-            <div class="grid md:grid-cols-2 gap-6 text-sm text-slate-600 leading-relaxed">
-                <div class="space-y-3">
-                    <p>This is a searchable, mobile- and desktop-friendly atlas of the <strong>239 RNA virus species known to infect humans</strong>. RNA viruses — including influenza, measles, HIV, SARS-CoV-2, Ebola and dengue — cause a large share of the world's infectious-disease burden and dominate the list of emerging pandemic threats.</p>
-                    <p>Each record draws on the peer-reviewed catalogue by Zhang <em>et al.</em> and includes ICTV taxonomy, genome type, envelope status, likely transmission routes, observed host range, and the date and place of the first reported human infection. Where a match exists, we also surface a <strong>spillover risk score</strong> — an estimate of a virus's potential to jump from animals to people.</p>
-                </div>
-                <div class="space-y-3">
-                    <p class="bg-slate-50 border border-slate-200 rounded-lg p-4"><i data-lucide="graduation-cap" class="w-4 h-4 inline-block mr-1 text-indigo-600"></i> <strong>Learning more.</strong> To understand <em>why</em> these viruses matter, pair this database with the WHO and CEPI reports in <a href="#sources" class="text-blue-600 underline">Sources</a>. The WHO framework explains how the world prioritises pathogen families for research; CEPI's strategy lays out the plan to develop vaccines against them within 100 days of an outbreak.</p>
-                    <p class="text-xs text-slate-400">For research and educational use. Data is reproduced "as is" from the sources below and may contain errors or omissions — always confirm against primary literature before relying on it. This site is not medical advice.</p>
-                </div>
-            </div>
-        </section>
+  <section id="reading" class="wrap" aria-labelledby="reading-h">
+    <h2 id="reading-h">How to read it</h2>
+    <p>The most useful column is the transmission level, which says how far a virus is known to travel
+      between people rather than how dangerous it is. A level 2 virus can be lethal; a level 4b virus can be
+      mild. They answer different questions.</p>
+    <ul class="levels">
+            <li><b>Level 2</b> (147 species) — limited onward transmission between humans</li>
+            <li><b>Level 3</b> (32 species) — longer chains of transmission between humans</li>
+            <li><b>Level 4a</b> (36 species) — sustained human-to-human transmission, with an animal reservoir</li>
+            <li><b>Level 4b</b> (24 species) — sustained human-to-human transmission, no animal reservoir needed</li>
+    </ul>
+    <p>Vectors and routes are recorded separately: a virus can have a documented arthropod vector and also
+      documented person-to-person routes. A blank is an absence of recorded evidence, not evidence of
+      absence.</p>
+  </section>
 
-        <!-- ============ SOURCES / CITATIONS ============ -->
-        <section id="sources" class="scroll-mt-20 mt-6 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8">
-            <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2 mb-2"><i data-lucide="book-marked" class="w-5 h-5 text-blue-600"></i> Sources &amp; citations</h2>
-            <p class="text-sm text-slate-500 mb-5">Please cite the original authors when you use this data. The WHO and CEPI reports are included for context — they are worth reading to understand the bigger picture.</p>
-            <ol class="space-y-4 text-sm text-slate-700 list-none counter-reset">
-                <li class="pl-4 border-l-2 border-blue-500">
-                    <p class="font-semibold text-slate-900">Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ. A complete catalogue of human-infective RNA viruses.</p>
-                    <p class="text-slate-600"><em>Scientific Data</em>. 2026;13:981. — the peer-reviewed paper describing this dataset.</p>
-                    <a class="text-blue-600 hover:underline text-xs" href="https://doi.org/10.1038/s41597-026-07281-5" target="_blank" rel="noopener">doi.org/10.1038/s41597-026-07281-5</a>
-                </li>
-                <li class="pl-4 border-l-2 border-blue-500">
-                    <p class="font-semibold text-slate-900">Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ. Human-infective RNA virus database [dataset].</p>
-                    <p class="text-slate-600">figshare; 2026. — the underlying data powering this site.</p>
-                    <a class="text-blue-600 hover:underline text-xs" href="https://doi.org/10.6084/m9.figshare.30094726.v2" target="_blank" rel="noopener">doi.org/10.6084/m9.figshare.30094726.v2</a>
-                </li>
-                <li class="pl-4 border-l-2 border-rose-500">
-                    <p class="font-semibold text-slate-900">SpillOver: Viral Risk Ranking.</p>
-                    <p class="text-slate-600">Spillover risk scores shown on this site are the work of, and full credit belongs to, the SpillOver team.</p>
-                    <a class="text-blue-600 hover:underline text-xs" href="https://spillover.global/ranking-comparison/" target="_blank" rel="noopener">spillover.global/ranking-comparison</a>
-                </li>
-                <li class="pl-4 border-l-2 border-emerald-500">
-                    <p class="font-semibold text-slate-900">World Health Organization. Pathogens prioritization: a scientific framework for epidemic and pandemic research preparedness.</p>
-                    <p class="text-slate-600">WHO; 2024. — <span class="text-slate-500">context: how the world chooses which pathogen families to prioritise for research.</span></p>
-                    <a class="text-blue-600 hover:underline text-xs" href="https://www.who.int/publications/m/item/pathogens-prioritization-a-scientific-framework-for-epidemic-and-pandemic-research-preparedness" target="_blank" rel="noopener">Read the WHO report →</a>
-                </li>
-                <li class="pl-4 border-l-2 border-emerald-500">
-                    <p class="font-semibold text-slate-900">Coalition for Epidemic Preparedness Innovations. CEPI 3.0 Strategy (2027–2031).</p>
-                    <p class="text-slate-600">CEPI; 2026. — <span class="text-slate-500">context: the global plan to counter epidemic and pandemic threats and the 100 Days Mission.</span></p>
-                    <a class="text-blue-600 hover:underline text-xs" href="https://cepi.net/securing-the-future" target="_blank" rel="noopener">Read the CEPI strategy →</a>
-                </li>
-            </ol>
-        </section>
-    </main>
+  <section id="limits" class="wrap" aria-labelledby="limits-h">
+    <h2 id="limits-h">What this data does not say</h2>
+    <ul class="limits">
+            <li><b>32</b> of 239 records carry no reference sequence accession.</li>
+            <li><b>0</b> have no transmission route recorded, which means the source found no evidence to record, not that no route exists.</li>
+            <li><b>0</b> have no host category recorded.</li>
+            <li><b>206</b> have no SpillOver risk score, because SpillOver ranks a different set of viruses; <b>33</b> do.</li>
+            <li><b>48</b> carry at least one cell the source marks with an asterisk. The mark appears on both yes and no values and the dataset does not define it, so each value is read as it stands and the mark is kept alongside it.</li>
+            <li><b>65</b> records sit on coordinates shared with at least one other record, so the first-report locations are not plotted on a map.</li>
+    </ul>
+    <p>The catalogue records human infection, not disease burden, severity or current circulation. A species
+      being listed says someone documented a human infection and published it. For anything consequential,
+      read the cited literature.</p>
+  </section>
 
-    <!-- ============ DETAIL MODAL ============ -->
-    <div id="detailModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-3 sm:p-4 hidden opacity-0 transition-opacity duration-200">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[92vh] flex flex-col overflow-hidden transform scale-95 transition-transform duration-200">
-            <div class="bg-slate-900 text-white p-5 sm:p-6 relative flex justify-between items-start gap-3">
-                <div class="min-w-0">
-                    <span id="modalFamilyBadge" class="inline-block text-[10px] font-semibold uppercase tracking-wider bg-blue-500 text-white px-2 py-0.5 rounded mb-2">Family</span>
-                    <h2 id="modalCommonName" class="text-xl sm:text-2xl font-bold break-words">Virus name</h2>
-                    <p id="modalSpeciesName" class="text-sm text-slate-400 italic mt-0.5 break-words">ICTV species</p>
-                </div>
-                <button onclick="closeModal()" aria-label="Close" class="text-slate-400 hover:text-white transition p-1 shrink-0"><i data-lucide="x" class="w-6 h-6"></i></button>
-            </div>
-            <div class="p-5 sm:p-6 overflow-y-auto space-y-5 bg-slate-50/60 flex-1">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-                    <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-3">
-                        <h3 class="font-bold text-[11px] text-slate-400 uppercase tracking-wider border-b pb-1">Taxonomy &amp; composition</h3>
-                        <div class="grid grid-cols-3 gap-y-2 text-xs">
-                            <span class="text-slate-500 font-medium">Genus</span><span id="mGenus" class="col-span-2 text-slate-900 font-semibold">–</span>
-                            <span class="text-slate-500 font-medium">Genome</span><span id="mGenome" class="col-span-2 text-slate-900">–</span>
-                            <span class="text-slate-500 font-medium">Enveloped</span><span id="mEnveloped" class="col-span-2 text-slate-900">–</span>
-                            <span class="text-slate-500 font-medium">Sequence</span><span id="mSeqID" class="col-span-2 font-mono text-slate-600 bg-slate-100 px-1 py-0.5 rounded w-fit truncate max-w-full">–</span>
-                            <span class="text-slate-500 font-medium">Spillover</span><span id="mSpillover" class="col-span-2 text-slate-900">–</span>
-                        </div>
-                    </div>
-                    <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-3">
-                        <h3 class="font-bold text-[11px] text-slate-400 uppercase tracking-wider border-b pb-1">First human infection</h3>
-                        <div class="grid grid-cols-3 gap-y-2 text-xs">
-                            <span class="text-slate-500 font-medium">Year</span><span id="mYear" class="col-span-2 text-slate-900 font-semibold">–</span>
-                            <span class="text-slate-500 font-medium">Country</span><span id="mCountry" class="col-span-2 text-slate-900">–</span>
-                            <span class="text-slate-500 font-medium">Region</span><span id="mRegion" class="col-span-2 text-slate-900">–</span>
-                            <span class="text-slate-500 font-medium">Refs</span><span id="mRefs" class="col-span-2 text-slate-900">–</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 space-y-3">
-                    <h3 class="font-bold text-[11px] text-slate-400 uppercase tracking-wider border-b pb-1">Transmission routes</h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs" id="modalTransmissionGrid"></div>
-                </div>
-                <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 space-y-3">
-                    <h3 class="font-bold text-[11px] text-slate-400 uppercase tracking-wider border-b pb-1">Host range</h3>
-                    <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 text-xs" id="modalHostGrid"></div>
-                </div>
-            </div>
-            <div class="bg-slate-100 p-4 border-t flex justify-end">
-                <button onclick="closeModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-semibold transition">Close</button>
-            </div>
-        </div>
-    </div>
+  <section id="sources" class="wrap" aria-labelledby="sources-h">
+    <h2 id="sources-h">Sources</h2>
+    <dl class="sources">
+      <dt>The catalogue</dt>
+      <dd>Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ. A complete catalogue of human-infective RNA
+        viruses. <i>Scientific Data</i>. 2026;13:981.
+        <a href="https://doi.org/10.1038/s41597-026-07281-5" rel="noopener">doi:10.1038/s41597-026-07281-5</a></dd>
+      <dt>The data file</dt>
+      <dd>Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ. Human-infective RNA virus database [dataset].
+        figshare; version 2.
+        <a href="https://doi.org/10.6084/m9.figshare.30094726.v2" rel="noopener">doi:10.6084/m9.figshare.30094726.v2</a>.
+        Licensed <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener">CC BY 4.0</a>.
+        Retrieved 2026-10-24 and committed to this repository unchanged.</dd>
+      <dt>Risk scores</dt>
+      <dd>SpillOver: Viral Risk Ranking, <a href="https://spillover.global/ranking-comparison/" rel="noopener">spillover.global</a>.
+        Credit for the ranking belongs to the SpillOver team. It covers a different set of viruses, so most
+        species here carry no score.</dd>
+      <dt>Taxonomy links</dt>
+      <dd>International Committee on Taxonomy of Viruses, <a href="https://ictv.global" rel="noopener">ictv.global</a>.
+        Literature links resolve to PubMed.</dd>
+    </dl>
+  </section>
+</main>
 
-    <!-- ============ FOOTER ============ -->
-    <footer class="bg-slate-900 text-slate-300 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div class="grid gap-8 md:grid-cols-3">
-                <div>
-                    <div class="flex items-center gap-2 text-white font-bold mb-2">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" class="w-5 h-5 text-blue-400 shrink-0" aria-hidden="true">
-                            <circle cx="12" cy="12" r="4.2"/>
-                            <line x1="12" y1="7.8" x2="12" y2="4"/><circle cx="12" cy="3" r="1.3" fill="currentColor" stroke="none"/>
-                            <line x1="12" y1="16.2" x2="12" y2="20"/><circle cx="12" cy="21" r="1.3" fill="currentColor" stroke="none"/>
-                            <line x1="7.8" y1="12" x2="4" y2="12"/><circle cx="3" cy="12" r="1.3" fill="currentColor" stroke="none"/>
-                            <line x1="16.2" y1="12" x2="20" y2="12"/><circle cx="21" cy="12" r="1.3" fill="currentColor" stroke="none"/>
-                            <line x1="9" y1="9" x2="6.3" y2="6.3"/><circle cx="5.4" cy="5.4" r="1.2" fill="currentColor" stroke="none"/>
-                            <line x1="15" y1="9" x2="17.7" y2="6.3"/><circle cx="18.6" cy="5.4" r="1.2" fill="currentColor" stroke="none"/>
-                            <line x1="9" y1="15" x2="6.3" y2="17.7"/><circle cx="5.4" cy="18.6" r="1.2" fill="currentColor" stroke="none"/>
-                            <line x1="15" y1="15" x2="17.7" y2="17.7"/><circle cx="18.6" cy="18.6" r="1.2" fill="currentColor" stroke="none"/>
-                        </svg> Human-Infective RNA Viruses
-                    </div>
-                    <p class="text-sm text-slate-400 leading-relaxed">A free, open, searchable catalogue of the 239 RNA virus species known to infect humans.</p>
-                </div>
-                <div>
-                    <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Explore</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#browse" class="hover:text-white transition">Browse the database</a></li>
-                        <li><a href="#about" class="hover:text-white transition">About the data</a></li>
-                        <li><a href="#sources" class="hover:text-white transition">Sources &amp; citations</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-3">Share this database</h3>
-                    <p class="text-sm text-slate-400 mb-3">Help others learn about RNA viruses that infect humans.</p>
-                    <div class="flex items-center gap-2">
-                        <a id="shareLinkedIn" href="#" target="_blank" rel="noopener" aria-label="Share on LinkedIn"
-                           class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 text-sm font-medium transition">
-                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-blue-400" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg> LinkedIn
-                        </a>
-                        <a id="shareBluesky" href="#" target="_blank" rel="noopener" aria-label="Share on Bluesky"
-                           class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 text-sm font-medium transition">
-                            <svg viewBox="0 0 568 501" fill="currentColor" class="w-4 h-4 text-sky-400" aria-hidden="true"><path d="M123.1 33.5C188.3 82.5 258.4 181.9 284 235.3c25.6-53.4 95.7-152.8 160.9-201.8C491.9-1.8 568-29 568 57.9c0 17.4-9.9 145.9-15.8 166.8-20.4 72.6-94.3 91.1-160.1 79.9 115 19.6 144.2 84.5 81 149.4-120 123.3-172.5-30.9-186-70.4-2.4-7.2-3.6-10.6-3.6-7.7 0-2.9-1.1.5-3.6 7.7-13.5 39.5-66 193.7-186 70.4-63.2-64.9-34-129.8 81-149.4-65.8 11.2-139.7-7.3-160.1-79.9C9.9 203.8 0 75.3 0 57.9 0-29 76.1-1.8 123.1 33.5z"/></svg> Bluesky
-                        </a>
-                        <a id="shareEmail" href="#" aria-label="Share by email"
-                           class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 text-sm font-medium transition">
-                            <i data-lucide="mail" class="w-4 h-4 text-emerald-400"></i> Email
-                        </a>
-                    </div>
-                    <button id="copyLink" class="mt-3 inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-white transition">
-                        <i data-lucide="link" class="w-3.5 h-3.5"></i> <span id="copyLinkLabel">Copy link</span>
-                    </button>
-                </div>
-            </div>
-            <div class="border-t border-white/10 mt-8 pt-6 flex flex-col gap-4 text-xs text-slate-500">
-                <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
-                    <span>Website by <a href="https://curtishoffmann.com" target="_blank" rel="noopener" class="text-slate-200 hover:text-white underline decoration-slate-500 hover:decoration-white">Curtis Hoffmann</a></span>
-                    <a href="https://forms.gle/55NJokVPWdxjS7cS6" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 text-slate-200 hover:text-white transition font-medium">
-                        <i data-lucide="message-square-text" class="w-3.5 h-3.5"></i> Share your feedback
-                    </a>
-                </div>
-                <div class="flex flex-col sm:flex-row items-center justify-between gap-2 border-t border-white/5 pt-4">
-                    <span>Data: Zhang <em>et al.</em> (2026) · spillover.global · WHO · CEPI</span>
-                    <span>For research &amp; education · not medical advice</span>
-                </div>
-            </div>
-        </div>
-    </footer>
+<div class="dialog-backdrop" id="detail" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="d-name" id="detail-panel">
+    <button type="button" class="dialog-close" id="d-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="dialog-body" id="d-body"></div>
+  </div>
+</div>
 
-    <script>
-        const SITE_URL = "https://curtishoffmann.com/human_infective_rna_viruses/";
-        const SHARE_TITLE = "Human-Infective RNA Viruses — a searchable database of all 239 RNA virus species known to infect humans.";
-        let DATA = [];
-        const TX_ROUTES = ["Vector","Inhalation","Ingestion","Sexual contact","Iatrogenic","Fomites","Broken skin","Maternal","Direct contact"];
-        const HOSTS = [["Human only","Human only"],["Non-human primate","Primates"],["Other mammals","Other mammals"],["Birds","Birds"],["Other vertebrates","Other vertebrates"]];
+<footer class="site">
+  <div class="wrap">
+    <p><b>Human-Infective RNA Viruses.</b> Built by <a href="https://curtishoffmann.com">Curtis Hoffmann</a>
+      from the open catalogue of Zhang and colleagues, released under CC BY 4.0.
+      Page built 2026-10-24.</p>
+    <p class="fine">For research and teaching. The data may contain errors; confirm against the cited
+      literature before relying on it. Not medical advice, and not a statement about any virus's current
+      circulation or risk.</p>
+    <p class="fine"><a href="https://github.com/phagehunter/human_infective_rna_viruses">Source and data on
+      GitHub</a> · <a href="https://forms.gle/55NJokVPWdxjS7cS6">Send feedback</a></p>
+  </div>
+</footer>
 
-        document.addEventListener("DOMContentLoaded", () => {
-            lucide.createIcons();
-            DATA = Array.isArray(window.VIRUS_DATA) ? window.VIRUS_DATA : [];
-            document.getElementById('searchInput').addEventListener('input', runFilters);
-            document.getElementById('filterFamily').addEventListener('change', onFamilyChange);
-            document.getElementById('filterGenome').addEventListener('change', runFilters);
-            document.getElementById('filterTx').addEventListener('change', runFilters);
-            document.getElementById('resetBtn').addEventListener('click', resetFilters);
-            document.getElementById('detailModal').addEventListener('click', (e) => { if (e.target.id === 'detailModal') closeModal(); });
-            document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
-            setupShare();
-            initFilters();
-            calcStats();
-            runFilters();
-        });
-
-        // ---------- Sharing ----------
-        function setupShare() {
-            const url = encodeURIComponent(SITE_URL);
-            const text = encodeURIComponent(SHARE_TITLE);
-            document.getElementById('shareLinkedIn').href = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-            document.getElementById('shareBluesky').href = `https://bsky.app/intent/compose?text=${encodeURIComponent(SHARE_TITLE + " " + SITE_URL)}`;
-            document.getElementById('shareEmail').href = `mailto:?subject=${encodeURIComponent("Human-Infective RNA Viruses")}&body=${encodeURIComponent(SHARE_TITLE + "\n\n" + SITE_URL)}`;
-            const copyBtn = document.getElementById('copyLink');
-            copyBtn.addEventListener('click', async () => {
-                try { await navigator.clipboard.writeText(SITE_URL); } catch (e) {}
-                const label = document.getElementById('copyLinkLabel');
-                label.textContent = 'Link copied!';
-                setTimeout(() => { label.textContent = 'Copy link'; }, 1800);
-            });
-        }
-
-        // ---------- Stats ----------
-        function calcStats() {
-            const total = DATA.length;
-            const families = new Set(DATA.map(v => v.family).filter(Boolean));
-            const countryCounts = {};
-            let env = 0;
-            DATA.forEach(v => {
-                if (v.country) countryCounts[v.country] = (countryCounts[v.country] || 0) + 1;
-                if (v.enveloped === 1) env++;
-            });
-            let top = '–', max = 0;
-            for (const [c, n] of Object.entries(countryCounts)) if (n > max) { max = n; top = c; }
-            document.getElementById('statTotal').innerText = total;
-            document.getElementById('statFamilies').innerText = families.size;
-            const el = document.getElementById('statCountry');
-            el.innerText = shortCountry(top);
-            el.title = top;
-            document.getElementById('statEnveloped').innerText = total ? Math.round((env / total) * 100) + '%' : '–';
-        }
-        function shortCountry(c) {
-            const map = {
-                'United States of America': 'USA', 'United States': 'USA',
-                'Democratic Republic of the Congo': 'DR Congo',
-                'United Kingdom': 'UK', 'Republic of Korea': 'South Korea'
-            };
-            return map[c] || c;
-        }
-
-        // ---------- Filters (family -> genome cascade) ----------
-        function initFilters() {
-            const fam = new Set();
-            DATA.forEach(v => { if (v.family) fam.add(v.family); });
-            fill('filterFamily', [...fam].sort());
-            rebuildGenomeOptions();
-            fill('filterTx', TX_ROUTES);
-        }
-        function fill(id, items) {
-            const sel = document.getElementById(id);
-            const keep = sel.querySelector('option[value=""]');
-            sel.innerHTML = '';
-            sel.appendChild(keep);
-            items.forEach(val => { const o = document.createElement('option'); o.value = val; o.textContent = val; sel.appendChild(o); });
-        }
-        function rebuildGenomeOptions() {
-            const fam = document.getElementById('filterFamily').value;
-            const genomeSel = document.getElementById('filterGenome');
-            const current = genomeSel.value;
-            const genomes = new Set();
-            DATA.forEach(v => { if ((!fam || v.family === fam) && v.genome) genomes.add(v.genome); });
-            fill('filterGenome', [...genomes].sort());
-            // keep current selection only if it still exists for this family
-            genomeSel.value = genomes.has(current) ? current : '';
-        }
-        function onFamilyChange() {
-            rebuildGenomeOptions();
-            runFilters();
-        }
-        function resetFilters() {
-            document.getElementById('searchInput').value = '';
-            document.getElementById('filterFamily').value = '';
-            document.getElementById('filterTx').value = '';
-            rebuildGenomeOptions();
-            runFilters();
-        }
-
-        function runFilters() {
-            const q = document.getElementById('searchInput').value.toLowerCase().trim();
-            const fam = document.getElementById('filterFamily').value;
-            const gen = document.getElementById('filterGenome').value;
-            const tx = document.getElementById('filterTx').value;
-            const out = DATA.filter(v => {
-                const sMatch = !q || [v.name, v.species, v.genus, v.family, v.country].some(f => String(f || '').toLowerCase().includes(q));
-                const fMatch = !fam || v.family === fam;
-                const gMatch = !gen || v.genome === gen;
-                const tMatch = !tx || (v.tx && v.tx[tx] === 1);
-                return sMatch && fMatch && gMatch && tMatch;
-            });
-            document.getElementById('resultsCount').innerText = `Showing ${out.length} of ${DATA.length} virus species`;
-            render(out);
-        }
-
-        // ---------- Rendering ----------
-        function render(data) {
-            const grid = document.getElementById('virusGrid');
-            grid.innerHTML = '';
-            if (!data.length) {
-                grid.innerHTML = `<div class="col-span-full text-center py-14 text-slate-400 bg-white border border-slate-200 rounded-xl"><i data-lucide="folder-search" class="w-12 h-12 mx-auto mb-2 text-slate-300"></i><p class="text-sm font-medium">No viruses match your search</p></div>`;
-                lucide.createIcons();
-                return;
-            }
-            const frag = document.createDocumentFragment();
-            data.forEach(v => {
-                const enveloped = v.enveloped === 1;
-                const card = document.createElement('button');
-                card.type = 'button';
-                card.className = "text-left bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-lg hover:border-blue-400 hover:-translate-y-0.5 transition duration-200 flex flex-col justify-between overflow-hidden";
-                card.onclick = () => openModal(v);
-                const risk = (typeof v.spilloverScore === 'number')
-                    ? `<span class="text-[10px] px-2 py-0.5 rounded font-semibold bg-rose-50 text-rose-700 border border-rose-200" title="Spillover risk score (spillover.global)">Spillover risk ${v.spilloverScore}</span>` : '';
-                card.innerHTML = `
-                    <div class="p-4 sm:p-5 space-y-3">
-                        <div class="flex justify-between items-start gap-2 flex-wrap">
-                            <span class="px-2 py-0.5 bg-slate-100 text-slate-700 text-[10px] font-bold uppercase tracking-wider rounded truncate max-w-[160px]">${esc(v.family) || 'Unclassified'}</span>
-                            <span class="text-[10px] px-2 py-0.5 rounded font-semibold ${enveloped ? 'bg-amber-50 text-amber-700 border border-amber-200' : 'bg-teal-50 text-teal-700 border border-teal-200'}">${enveloped ? 'Enveloped' : 'Non-enveloped'}</span>
-                        </div>
-                        <div>
-                            <h3 class="text-base font-bold text-slate-900 line-clamp-2">${esc(v.name) || 'Unnamed'}</h3>
-                            <p class="text-xs text-slate-400 italic line-clamp-1 mt-0.5">${esc(v.species) || 'N/A'}</p>
-                        </div>
-                        <div class="pt-2 flex items-center justify-between gap-2 text-xs text-slate-500 border-t border-slate-100">
-                            <span class="flex items-center min-w-0"><i data-lucide="map-pin" class="w-3.5 h-3.5 mr-1 text-slate-400 shrink-0"></i><span class="truncate">${esc(v.country) || 'Unknown'}</span></span>
-                            <span class="font-medium bg-slate-100 text-slate-700 px-1.5 py-0.5 rounded text-[11px] shrink-0">${esc(v.year) || 'N/A'}</span>
-                        </div>
-                        ${risk ? `<div>${risk}</div>` : ''}
-                    </div>
-                    <div class="px-4 sm:px-5 py-2.5 bg-slate-50 border-t border-slate-100 flex justify-between items-center text-xs text-blue-600 font-semibold">
-                        <span>View details</span><i data-lucide="arrow-right" class="w-4 h-4"></i>
-                    </div>`;
-                frag.appendChild(card);
-            });
-            grid.appendChild(frag);
-            lucide.createIcons();
-        }
-
-        function esc(s) {
-            return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-        }
-
-        // ---------- Modal ----------
-        function openModal(v) {
-            document.getElementById('modalFamilyBadge').innerText = v.family || 'N/A';
-            document.getElementById('modalCommonName').innerText = v.name || 'Unnamed virus';
-            document.getElementById('modalSpeciesName').innerText = v.species || 'Not specified';
-            document.getElementById('mGenus').innerText = v.genus || 'N/A';
-            document.getElementById('mGenome').innerText = v.genome || 'N/A';
-            document.getElementById('mEnveloped').innerText = v.enveloped === 1 ? 'Yes (lipid envelope)' : 'No (naked capsid)';
-            document.getElementById('mSeqID').innerText = v.seqId || 'None';
-            document.getElementById('mYear').innerText = v.year || 'Unknown';
-            document.getElementById('mCountry').innerText = v.country || 'Unknown';
-            document.getElementById('mRegion').innerText = v.region || 'N/A';
-
-            const spill = document.getElementById('mSpillover');
-            if (typeof v.spilloverScore === 'number') {
-                spill.innerHTML = `<a href="https://spillover.global/ranking-comparison/" target="_blank" rel="noopener" class="font-semibold text-rose-700 hover:underline">${v.spilloverScore}${v.spilloverRank ? ` · rank #${v.spilloverRank}` : ''}</a> <span class="text-slate-400 text-[11px]">(spillover.global)</span>`;
-            } else { spill.innerText = 'Not ranked'; }
-
-            const refs = document.getElementById('mRefs');
-            const links = [];
-            if (v.ref && v.ref.url) links.push(`<a class="text-blue-600 hover:underline" href="${esc(v.ref.url)}" target="_blank" rel="noopener">PubMed ${esc(v.ref.id)}</a>`);
-            if (v.ictv && v.ictv.url) links.push(`<a class="text-blue-600 hover:underline" href="${esc(v.ictv.url)}" target="_blank" rel="noopener">ICTV</a>`);
-            refs.innerHTML = links.length ? links.join(' · ') : 'N/A';
-
-            const txGrid = document.getElementById('modalTransmissionGrid');
-            txGrid.innerHTML = '';
-            TX_ROUTES.forEach(label => {
-                const active = v.tx && v.tx[label] === 1;
-                const b = document.createElement('div');
-                b.className = `p-2.5 rounded-lg border text-center font-medium ${active ? 'bg-red-50 text-red-700 border-red-200 font-bold' : 'bg-slate-100 text-slate-400 border-slate-200'}`;
-                b.innerHTML = `<div class="text-[10px] tracking-wide text-slate-400 font-normal uppercase mb-0.5">${label}</div><div class="text-xs">${active ? 'Yes' : '–'}</div>`;
-                txGrid.appendChild(b);
-            });
-
-            const hostGrid = document.getElementById('modalHostGrid');
-            hostGrid.innerHTML = '';
-            HOSTS.forEach(([key, label]) => {
-                const active = v.hosts && v.hosts[key] === 1;
-                const b = document.createElement('div');
-                b.className = `p-2.5 rounded-lg border text-center font-medium ${active ? 'bg-emerald-50 text-emerald-700 border-emerald-200 font-bold' : 'bg-slate-100 text-slate-400 border-slate-200'}`;
-                b.innerHTML = `<div class="text-[10px] tracking-wide text-slate-400 font-normal uppercase mb-0.5">${label}</div><div class="text-xs">${active ? 'Yes' : '–'}</div>`;
-                hostGrid.appendChild(b);
-            });
-
-            const modal = document.getElementById('detailModal');
-            modal.classList.remove('hidden');
-            requestAnimationFrame(() => { modal.classList.remove('opacity-0'); modal.firstElementChild.classList.remove('scale-95'); });
-            lucide.createIcons();
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('detailModal');
-            if (modal.classList.contains('hidden')) return;
-            modal.classList.add('opacity-0');
-            modal.firstElementChild.classList.add('scale-95');
-            setTimeout(() => modal.classList.add('hidden'), 200);
-        }
-    </script>
+<script src="assets/app.js?v=20261024" defer></script>
 </body>
 </html>

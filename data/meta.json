@@ -1,0 +1,136 @@
+{
+ "generated": "2026-10-24",
+ "source": {
+  "title": "Zhang et al. - Human-infective RNA virus database.xlsx",
+  "doi": "10.6084/m9.figshare.30094726.v2",
+  "version": 2,
+  "published_date": "2026-02-19T15:21:09Z",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "authors": [
+   "Feifei Zhang",
+   "Lu Lu",
+   "Liam Brierley",
+   "Helmi Hietanen",
+   "Mark E.J. Woolhouse"
+  ],
+  "file": "Zhang et al. - Human-infective RNA virus database.xlsx",
+  "size_bytes": 150945,
+  "md5": "4364e74b65441d18d2318ece3cd0267e",
+  "retrieved": "2026-10-24"
+ },
+ "counts": {
+  "species": 239,
+  "families": 23,
+  "genera": 61,
+  "countries": 57,
+  "regions": 8,
+  "genomeTypes": 5
+ },
+ "years": {
+  "earliest": 1901,
+  "latest": 2022,
+  "missing": 0
+ },
+ "levels": {
+  "2": 147,
+  "3": 32,
+  "4a": 36,
+  "4b": 24
+ },
+ "levelLabels": {
+  "2": "Level 2 — limited onward transmission between humans",
+  "3": "Level 3 — longer chains of transmission between humans",
+  "4a": "Level 4a — sustained human-to-human transmission, with an animal reservoir",
+  "4b": "Level 4b — sustained human-to-human transmission, no animal reservoir needed"
+ },
+ "families": {
+  "Flaviviridae": 31,
+  "Picornaviridae": 25,
+  "Togaviridae": 22,
+  "Peribunyaviridae": 21,
+  "Rhabdoviridae": 19,
+  "Paramyxoviridae": 17,
+  "Hantaviridae": 14,
+  "Arenaviridae": 12,
+  "Retroviridae": 11,
+  "Phenuiviridae": 10,
+  "Sedoreoviridae": 9,
+  "Nairoviridae": 8,
+  "Coronaviridae": 8,
+  "Orthomyxoviridae": 6,
+  "Filoviridae": 6,
+  "Spinareoviridae": 4,
+  "Astroviridae": 4,
+  "Pneumoviridae": 3,
+  "Caliciviridae": 3,
+  "Bornaviridae": 2,
+  "Hepeviridae": 2,
+  "Picobirnaviridae": 1,
+  "Matonaviridae": 1
+ },
+ "genomes": {
+  "ssRNA(-)": 96,
+  "ssRNA(+)": 96,
+  "ssRNA(-/+)": 22,
+  "dsRNA": 14,
+  "ssRNA-RT": 11
+ },
+ "regions": {
+  "North America": 61,
+  "Asia": 48,
+  "Sub-Saharan Africa": 40,
+  "Europe": 33,
+  "South America": 27,
+  "Oceania": 16,
+  "Caribbean": 11,
+  "North Africa/Middle East": 3
+ },
+ "routes": {
+  "Vector": 109,
+  "Inhalation": 76,
+  "Direct contact": 68,
+  "Ingestion": 42,
+  "Broken skin": 30,
+  "Maternal": 26,
+  "Iatrogenic": 23,
+  "Fomites": 20,
+  "Sexual contact": 15
+ },
+ "hosts": {
+  "Other mammals": 189,
+  "Non-human primate": 76,
+  "Birds": 44,
+  "Human only": 24,
+  "Other vertebrates": 7
+ },
+ "gaps": {
+  "noSequenceId": 32,
+  "noTransmissionRoute": 0,
+  "noHostCategory": 0,
+  "noSpilloverScore": 206,
+  "sourceMarked": 48,
+  "sharedCoordinates": 65
+ },
+ "spillover": "Risk scores and ranks published by the SpillOver project, joined to the Zhang et al. catalogue by ICTV species name. SpillOver ranks many viruses that are not in this catalogue and does not rank most of the ones that are, so only the overlap appears here. The date these were retrieved was not recorded by the earlier version of this site, so it is not claimed. Credit for the ranking belongs to the SpillOver team.",
+ "normalization": {
+  "invisible character removed: vectorOrder": 13,
+  "source asterisk preserved: Broken skin": 5,
+  "source asterisk preserved: Direct contact": 17,
+  "source asterisk preserved: Fomites": 4,
+  "source asterisk preserved: Iatrogenic": 1,
+  "source asterisk preserved: Ingestion": 15,
+  "source asterisk preserved: Inhalation": 22,
+  "source asterisk preserved: Maternal": 5,
+  "source asterisk preserved: Non-human primate": 6,
+  "source asterisk preserved: Other mammals": 7,
+  "source asterisk preserved: Sexual contact": 3,
+  "source asterisk preserved: Transmission level": 1,
+  "source asterisk preserved: Vector": 7,
+  "source asterisk preserved: Vector order": 6,
+  "whitespace trimmed: country": 1,
+  "whitespace trimmed: name": 71,
+  "whitespace trimmed: species": 2,
+  "whitespace trimmed: vectorOrder": 55
+ }
+}

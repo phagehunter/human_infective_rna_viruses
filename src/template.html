@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+<meta name="author" content="{{author}}">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#000b18">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:title" content="Human-Infective RNA Viruses — all {{species}} species, searchable">
+<meta property="og:description" content="{{og_description}}">
+<meta property="og:image" content="https://curtishoffmann.com/human_infective_rna_viruses/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Human-Infective RNA Viruses — a searchable atlas of {{species}} RNA virus species">
+<meta property="og:site_name" content="Human-Infective RNA Viruses">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Human-Infective RNA Viruses — all {{species}} species, searchable">
+<meta name="twitter:description" content="{{og_description}}">
+<meta name="twitter:image" content="https://curtishoffmann.com/human_infective_rna_viruses/assets/og-image.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css?v={{v}}">
+<script type="application/ld+json">
+{{jsonld}}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="./">
+      <svg class="glyph" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4"
+           stroke-linecap="round" aria-hidden="true" focusable="false">
+        <circle cx="24" cy="24" r="11"/>
+        <path d="M24 13V5M24 43v-8M13 24H5M43 24h-8M16.2 16.2l-5.7-5.7M37.5 37.5l-5.7-5.7M31.8 16.2l5.7-5.7M10.5 37.5l5.7-5.7"/>
+        <circle cx="24" cy="4" r="2"/><circle cx="24" cy="44" r="2"/>
+        <circle cx="4" cy="24" r="2"/><circle cx="44" cy="24" r="2"/>
+        <circle cx="9.4" cy="9.4" r="2"/><circle cx="38.6" cy="38.6" r="2"/>
+        <circle cx="38.6" cy="9.4" r="2"/><circle cx="9.4" cy="38.6" r="2"/>
+        <path d="M19.5 26.5c1.5-3 3.2-5.2 4.5-5.2s3 2.2 4.5 5.2"/>
+      </svg>
+      <span>Human-Infective RNA Viruses</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="#catalogue">Catalogue</a>
+      <a href="#reading">How to read it</a>
+      <a href="#limits">Limits</a>
+      <a href="#sources">Sources</a>
+      <a href="https://curtishoffmann.com" class="offsite">curtishoffmann.com</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <h1>Every RNA virus known to infect humans, in one searchable place</h1>
+    <p class="lede">The {{species}} RNA virus species with documented human infection, from the catalogue
+      assembled by Zhang and colleagues. Each record carries ICTV taxonomy, how far the virus transmits
+      between people, which routes and vectors are documented, which hosts it is found in, and where and
+      when human infection was first reported.</p>
+    <dl class="stats">
+      <div><dt>species</dt><dd>{{species}}</dd></div>
+      <div><dt>families</dt><dd>{{families}}</dd></div>
+      <div><dt>genera</dt><dd>{{genera}}</dd></div>
+      <div><dt>countries of first report</dt><dd>{{countries}}</dd></div>
+      <div><dt>first reports span</dt><dd>{{year_first}}–{{year_last}}</dd></div>
+    </dl>
+  </div>
+</div>
+
+<main id="main">
+  <section id="catalogue" class="wrap" aria-labelledby="catalogue-h">
+    <h2 id="catalogue-h">The catalogue</h2>
+
+    <form class="filters" id="filters" role="search" aria-labelledby="catalogue-h">
+      <div class="f-q">
+        <label for="f-q">Search</label>
+        <input id="f-q" name="q" type="search" autocomplete="off" spellcheck="false"
+               placeholder="Name, species, genus, family or country…">
+      </div>
+      <div>
+        <label for="f-family">Family</label>
+        <select id="f-family" name="family"><option value="ALL">All families</option></select>
+      </div>
+      <div>
+        <label for="f-genome">Genome</label>
+        <select id="f-genome" name="genome"><option value="ALL">All genome types</option></select>
+      </div>
+      <div>
+        <label for="f-route">Transmission</label>
+        <select id="f-route" name="route"><option value="ALL">All routes</option></select>
+      </div>
+      <div>
+        <label for="f-level">Level</label>
+        <select id="f-level" name="level"><option value="ALL">All levels</option></select>
+      </div>
+      <div class="f-reset">
+        <button type="button" id="f-reset" class="btn ghost">Reset</button>
+      </div>
+    </form>
+
+    <p class="count" id="count" role="status" aria-live="polite">Loading the catalogue…</p>
+    <div id="cards" class="cards"></div>
+    <p id="empty" class="empty" hidden>
+      No species match these filters. <button type="button" class="linklike" id="empty-reset">Clear them</button>
+      and start again.
+    </p>
+    <p id="failed" class="empty" hidden>
+      The catalogue file could not be loaded. Reload the page to try again, or read the dataset directly at
+      <a href="https://doi.org/{{source_doi}}" rel="noopener">doi.org/{{source_doi}}</a>.
+    </p>
+
+    <noscript>
+      <div class="notice">
+        <p><strong>This catalogue is searchable with JavaScript.</strong> Without it the shape of the data is
+          still below, and the dataset itself is open: every record comes from
+          <a href="https://doi.org/{{source_doi}}" rel="noopener">doi.org/{{source_doi}}</a>, released under
+          {{source_license}}.</p>
+      </div>
+    </noscript>
+
+    <table class="facts">
+      <caption>What the {{species}} species look like in aggregate, counted from the data at build time</caption>
+      <tbody>
+          {{facts_rows}}
+      </tbody>
+    </table>
+  </section>
+
+  <section id="reading" class="wrap" aria-labelledby="reading-h">
+    <h2 id="reading-h">How to read it</h2>
+    <p>The most useful column is the transmission level, which says how far a virus is known to travel
+      between people rather than how dangerous it is. A level 2 virus can be lethal; a level 4b virus can be
+      mild. They answer different questions.</p>
+    <ul class="levels">
+            {{level_list}}
+    </ul>
+    <p>Vectors and routes are recorded separately: a virus can have a documented arthropod vector and also
+      documented person-to-person routes. A blank is an absence of recorded evidence, not evidence of
+      absence.</p>
+  </section>
+
+  <section id="limits" class="wrap" aria-labelledby="limits-h">
+    <h2 id="limits-h">What this data does not say</h2>
+    <ul class="limits">
+            {{gaps_list}}
+    </ul>
+    <p>The catalogue records human infection, not disease burden, severity or current circulation. A species
+      being listed says someone documented a human infection and published it. For anything consequential,
+      read the cited literature.</p>
+  </section>
+
+  <section id="sources" class="wrap" aria-labelledby="sources-h">
+    <h2 id="sources-h">Sources</h2>
+    <dl class="sources">
+      <dt>The catalogue</dt>
+      <dd>Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ. A complete catalogue of human-infective RNA
+        viruses. <i>Scientific Data</i>. 2026;13:981.
+        <a href="https://doi.org/10.1038/s41597-026-07281-5" rel="noopener">doi:10.1038/s41597-026-07281-5</a></dd>
+      <dt>The data file</dt>
+      <dd>Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ. Human-infective RNA virus database [dataset].
+        figshare; version {{source_version}}.
+        <a href="https://doi.org/{{source_doi}}" rel="noopener">doi:{{source_doi}}</a>.
+        Licensed <a href="{{source_license_url}}" rel="noopener">{{source_license}}</a>.
+        Retrieved {{source_retrieved}} and committed to this repository unchanged.</dd>
+      <dt>Risk scores</dt>
+      <dd>SpillOver: Viral Risk Ranking, <a href="https://spillover.global/ranking-comparison/" rel="noopener">spillover.global</a>.
+        Credit for the ranking belongs to the SpillOver team. It covers a different set of viruses, so most
+        species here carry no score.</dd>
+      <dt>Taxonomy links</dt>
+      <dd>International Committee on Taxonomy of Viruses, <a href="https://ictv.global" rel="noopener">ictv.global</a>.
+        Literature links resolve to PubMed.</dd>
+    </dl>
+  </section>
+</main>
+
+<div class="dialog-backdrop" id="detail" hidden>
+  <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="d-name" id="detail-panel">
+    <button type="button" class="dialog-close" id="d-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"
+        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <div class="dialog-body" id="d-body"></div>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <p><b>Human-Infective RNA Viruses.</b> Built by <a href="https://curtishoffmann.com">Curtis Hoffmann</a>
+      from the open catalogue of Zhang and colleagues, released under {{source_license}}.
+      Page built {{generated}}.</p>
+    <p class="fine">For research and teaching. The data may contain errors; confirm against the cited
+      literature before relying on it. Not medical advice, and not a statement about any virus's current
+      circulation or risk.</p>
+    <p class="fine"><a href="https://github.com/phagehunter/human_infective_rna_viruses">Source and data on
+      GitHub</a> · <a href="https://forms.gle/55NJokVPWdxjS7cS6">Send feedback</a></p>
+  </div>
+</footer>
+
+<script src="assets/app.js?v={{v}}" defer></script>
+</body>
+</html>

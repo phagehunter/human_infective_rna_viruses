@@ -1,0 +1,207 @@
+{
+ "source": "SpillOver: Viral Risk Ranking",
+ "source_url": "https://spillover.global/ranking-comparison/",
+ "retrieved": "unknown; carried forward from data/viruses.js, the hand-assembled data file this site used before the build was rewritten against the upstream release. That file was removed in the same change and remains in git history.",
+ "note": "Risk scores and ranks published by the SpillOver project, joined to the Zhang et al. catalogue by ICTV species name. SpillOver ranks many viruses that are not in this catalogue and does not rank most of the ones that are, so only the overlap appears here. The date these were retrieved was not recorded by the earlier version of this site, so it is not claimed. Credit for the ranking belongs to the SpillOver team.",
+ "count": 33,
+ "rankings": [
+  {
+   "species": "Mammarenavirus lassaense",
+   "name": "Lassa virus",
+   "score": 91.2,
+   "rank": 2
+  },
+  {
+   "species": "Orthohantavirus seoulense",
+   "name": "Seoul virus",
+   "score": 86.5,
+   "rank": 4
+  },
+  {
+   "species": "Henipavirus nipahense",
+   "name": "Nipah virus",
+   "score": 86.5,
+   "rank": 5
+  },
+  {
+   "species": "Paslahepevirus balayani",
+   "name": "Hepatitis E virus",
+   "score": 86.4,
+   "rank": 6
+  },
+  {
+   "species": "Orthomarburgvirus marburgense",
+   "name": "Marburg virus",
+   "score": 85.7,
+   "rank": 7
+  },
+  {
+   "species": "Lentivirus simimdef",
+   "name": "Simian immunodeficiency virus",
+   "score": 84.8,
+   "rank": 8
+  },
+  {
+   "species": "Lyssavirus rabies",
+   "name": "Rabies virus",
+   "score": 84.7,
+   "rank": 9
+  },
+  {
+   "species": "Mammarenavirus choriomeningitidis",
+   "name": "Lymphocytic choriomeningitis virus",
+   "score": 84.6,
+   "rank": 10
+  },
+  {
+   "species": "Betacoronavirus pandemicum",
+   "name": "Severe acute respiratory syndrome coronavirus",
+   "score": 83.1,
+   "rank": 12
+  },
+  {
+   "species": "Alphacoronavirus chicagoense",
+   "name": "Human coronavirus 229E",
+   "score": 81.0,
+   "rank": 13
+  },
+  {
+   "species": "Lyssavirus hamburg",
+   "name": "European bat lyssavirus 1",
+   "score": 79.0,
+   "rank": 16
+  },
+  {
+   "species": "Orthohantavirus andesense",
+   "name": "Andes virus",
+   "score": 78.8,
+   "rank": 17
+  },
+  {
+   "species": "Orthohantavirus puumalaense",
+   "name": "Puumala virus",
+   "score": 78.6,
+   "rank": 19
+  },
+  {
+   "species": "Lyssavirus helsinki",
+   "name": "European bat lyssavirus 2",
+   "score": 75.8,
+   "rank": 25
+  },
+  {
+   "species": "Orthohantavirus sinnombreense",
+   "name": "Sin Nombre virus",
+   "score": 73.4,
+   "rank": 32
+  },
+  {
+   "species": "Orthoebolavirus restonense",
+   "name": "Reston virus",
+   "score": 72.9,
+   "rank": 35
+  },
+  {
+   "species": "Henipavirus hendraense",
+   "name": "Hendra virus",
+   "score": 72.7,
+   "rank": 36
+  },
+  {
+   "species": "Betacoronavirus hongkongense",
+   "name": "Human coronavirus HKU1",
+   "score": 72.5,
+   "rank": 38
+  },
+  {
+   "species": "Betacoronavirus cameli",
+   "name": "Middle East respiratory syndrome-related coronavirus",
+   "score": 71.6,
+   "rank": 42
+  },
+  {
+   "species": "Lyssavirus australis",
+   "name": "Australian bat lyssavirus",
+   "score": 71.5,
+   "rank": 43
+  },
+  {
+   "species": "Mamastrovirus hominis",
+   "name": "Mamastrovirus 1",
+   "score": 71.1,
+   "rank": 46
+  },
+  {
+   "species": "Mamastrovirus melbournense",
+   "name": "Mamastrovirus 6",
+   "score": 70.4,
+   "rank": 54
+  },
+  {
+   "species": "Rotavirus alphagastroenteritidis",
+   "name": "Rotavirus A",
+   "score": 70.0,
+   "rank": 57
+  },
+  {
+   "species": "Enterovirus cerhino",
+   "name": "Rhinovirus C",
+   "score": 68.1,
+   "rank": 70
+  },
+  {
+   "species": "Respirovirus pneumoniae",
+   "name": "Human parainfluenza virus 3",
+   "score": 67.2,
+   "rank": 81
+  },
+  {
+   "species": "Parechovirus beljungani",
+   "name": "Parechovirus B",
+   "score": 66.4,
+   "rank": 91
+  },
+  {
+   "species": "Mammarenavirus machupoense",
+   "name": "Machupo virus",
+   "score": 65.8,
+   "rank": 100
+  },
+  {
+   "species": "Morbillivirus hominis",
+   "name": "Measles virus",
+   "score": 65.8,
+   "rank": 101
+  },
+  {
+   "species": "Mammarenavirus guanaritoense",
+   "name": "Guanarito virus",
+   "score": 65.3,
+   "rank": 111
+  },
+  {
+   "species": "Mammarenavirus whitewaterense",
+   "name": "Whitewater Arroyo virus",
+   "score": 63.7,
+   "rank": 133
+  },
+  {
+   "species": "Lyssavirus duvenhage",
+   "name": "Duvenhage virus",
+   "score": 60.9,
+   "rank": 192
+  },
+  {
+   "species": "Lyssavirus mokola",
+   "name": "Mokola virus",
+   "score": 60.9,
+   "rank": 193
+  },
+  {
+   "species": "Mamastrovirus virginiaense",
+   "name": "Mamastrovirus 9",
+   "score": 57.5,
+   "rank": 289
+  }
+ ]
+}
