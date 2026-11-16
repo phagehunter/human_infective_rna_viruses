@@ -1,45 +1,88 @@
 # Human-Infective RNA Viruses
 
-A free, searchable, mobile- and desktop-friendly atlas of the 239 RNA virus species known to infect humans.
+A free, searchable atlas of the 239 RNA virus species known to infect humans.
 
-**Live site:** https://curtishoffmann.com/human_infective_rna_viruses/
+**Live site:** <https://curtishoffmann.com/human_infective_rna_viruses/>
 
-Each record includes:
+Every record carries ICTV taxonomy, genome type and envelope status, the
+transmission level, the documented transmission routes and arthropod vector,
+the observed host range, where and when human infection was first reported, the
+cited literature, and a SpillOver risk score where one exists. Search by name,
+species, genus, family or country, and filter by family, genome type,
+transmission route or transmission level.
 
-- ICTV taxonomy (family, genus, species)
-- Genome type and envelope status
-- Likely transmission routes (vector, inhalation, ingestion, sexual, iatrogenic, fomites, broken skin, maternal, direct contact)
-- Observed host range (human-only, primates, other mammals, birds, other vertebrates)
-- Discovery year, country and region
-- Spillover risk score (where a match is available)
-- Links to PubMed and ICTV references
-
-Search by name, species, genus, family or country, and filter by family, genome type, or transmission route.
+The catalogue comes from Zhang and colleagues and is released under CC BY 4.0.
+See [DATA.md](DATA.md) for the source, the checksum, and a full account of what
+the build changes and why.
 
 ## How it works
 
-This is a **static site** — plain HTML, CSS and JavaScript, no build step and no server. The virus data is baked into `data/viruses.js`, so the page works both when opened locally and when hosted on GitHub Pages.
+```
+fetch_data.py         Downloads the upstream workbook and verifies its checksum
+build.py              Normalizes the workbook into data/ and renders index.html
+src/template.html     The page, with placeholders for every computed number
+data/raw/             The upstream workbook, committed unchanged
+data/source.json      Provenance of that file: DOI, version, license, checksum
+data/spillover.json   SpillOver risk scores, joined by ICTV species name
+data/viruses.json     The normalized catalogue the page loads
+data/meta.json        Counts, gaps and the normalization report, all computed
+assets/styles.css     Stylesheet
+assets/app.js         Search, filtering and the detail dialog
+index.html            Build output; do not edit by hand
+```
 
+Standard library only, no build dependencies, no spreadsheet package and no
+front-end framework. The page loads one stylesheet, one script and one JSON
+file.
+
+### Build
+
+```bash
+python3 build.py            # normalize and render
+python3 build.py --report   # print the normalization report, write nothing
 ```
-index.html          The whole app (UI + logic + SEO metadata)
-data/viruses.js      239 viruses, pre-loaded (window.VIRUS_DATA)
-assets/favicon.svg   Icon
-assets/og-image.png  Social preview image
-robots.txt           Search-engine directives
-sitemap.xml          Sitemap for search engines
-.nojekyll            Tells GitHub Pages to serve files as-is
+
+Every number the page prints is computed in `build.py` from the data: the
+species, family, genus and country counts, the year range, the aggregate table,
+the per-level counts and the list of what the data does not contain. Nothing
+about the catalogue is typed into the template, so a later upstream release
+cannot leave a stale figure behind.
+
+### Refreshing from a new upstream release
+
+```bash
+python3 fetch_data.py --force
 ```
+
+`fetch_data.py` refuses a file whose checksum does not match the version this
+build was written against, and prints what it received. Check the figshare
+record, update `EXPECTED_MD5`, `EXPECTED_SIZE` and `VERSION` in that script
+along with the provenance block in `DATA.md`, then run `build.py` and commit
+the regenerated `data/` and `index.html` together.
 
 ## Preview locally
 
-Open `index.html` in any web browser — that's it.
+```bash
+python3 -m http.server 8000
+# open http://localhost:8000
+```
 
-## Data sources & citations
+A server is needed because the page fetches `data/viruses.json`.
+
+## Licensing
+
+Code is MIT. The catalogue is CC BY 4.0 from Zhang et al. and the risk scores
+belong to the SpillOver project. [LICENSE](LICENSE) sets out which is which.
+Anyone reusing the catalogue should cite Zhang et al. rather than this
+repository.
+
+## Sources
 
 - **Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ.** A complete catalogue of human-infective RNA viruses. *Scientific Data*. 2026;13:981. [doi:10.1038/s41597-026-07281-5](https://doi.org/10.1038/s41597-026-07281-5)
-- **Zhang F, et al.** Human-infective RNA virus database [dataset]. figshare; 2026. [doi:10.6084/m9.figshare.30094726.v2](https://doi.org/10.6084/m9.figshare.30094726.v2)
-- **SpillOver: Viral Risk Ranking** — spillover risk scores; full credit to the SpillOver team. [spillover.global/ranking-comparison](https://spillover.global/ranking-comparison/)
-- **WHO.** Pathogens prioritization: a scientific framework for epidemic and pandemic research preparedness. WHO; 2024. *(context)*
-- **CEPI.** CEPI 3.0 Strategy (2027–2031). *(context)*
+- **Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ.** Human-infective RNA virus database [dataset]. figshare; version 2, 2026. [doi:10.6084/m9.figshare.30094726.v2](https://doi.org/10.6084/m9.figshare.30094726.v2)
+- **SpillOver: Viral Risk Ranking.** [spillover.global/ranking-comparison](https://spillover.global/ranking-comparison/)
+- **International Committee on Taxonomy of Viruses.** [ictv.global](https://ictv.global)
 
-For research and educational use. Data is provided "as is" and may contain errors; confirm against primary literature before relying on it. Not medical advice.
+For research and teaching. The data may contain errors; confirm against the
+cited literature before relying on it. Not medical advice, and not a statement
+about any virus's current circulation or risk.

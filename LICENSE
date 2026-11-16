@@ -1,0 +1,43 @@
+MIT License
+
+Copyright (c) 2026 Curtis Hoffmann
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+The MIT license above covers the code in this repository: fetch_data.py,
+build.py, src/template.html, assets/styles.css and assets/app.js.
+
+It does not cover the catalogue itself. The records in data/raw/,
+data/viruses.json and data/meta.json are derived from:
+
+  Zhang F, Lu L, Brierley L, Hietanen H, Woolhouse MEJ.
+  Human-infective RNA virus database [dataset]. figshare; version 2, 2026.
+  doi:10.6084/m9.figshare.30094726.v2
+  Licensed CC BY 4.0 — https://creativecommons.org/licenses/by/4.0/
+
+That license permits redistribution and adaptation with attribution, which is
+why the workbook is committed here unchanged and why the citation appears on
+every page of the site, in data/source.json and in DATA.md. Anyone reusing the
+catalogue should cite Zhang et al. rather than this repository.
+
+The risk scores in data/spillover.json are published by the SpillOver: Viral
+Risk Ranking project (spillover.global). Credit for that ranking belongs to the
+SpillOver team.
